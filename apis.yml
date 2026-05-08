@@ -1,0 +1,29 @@
+aid: afterpay
+url: https://raw.githubusercontent.com/api-evangelist/afterpay/refs/heads/main/apis.yml
+name: Afterpay
+x-type: company
+description: >-
+  Afterpay (acquired by Block / Square) is a buy-now-pay-later platform offering Pay-in-4 installments at thousands of merchants. APIs for merchants to integrate via Square or direct.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Fintech
+  - BNPL
+  - Payments
+  - Consumer
+  - Block
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://www.afterpay.com/
+  - type: Plans
+    url: plans/afterpay-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/afterpay-rate-limits.yml
+  - type: FinOps
+    url: finops/afterpay-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
