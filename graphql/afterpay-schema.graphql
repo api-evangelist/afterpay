@@ -1,0 +1,855 @@
+"""
+Afterpay (Clearpay) BNPL GraphQL Schema
+Conceptual schema modeling the Afterpay merchant API domain.
+Source: https://developers.afterpay.com/afterpay-online/reference
+"""
+
+# ─── Scalars ──────────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar Decimal
+scalar URL
+scalar JSON
+
+# ─── Enums ────────────────────────────────────────────────────────────────────
+
+"""Lifecycle states for an Afterpay order."""
+enum OrderStatus {
+  PENDING
+  APPROVED
+  DECLINED
+  VOIDED
+  EXPIRED
+}
+
+"""Lifecycle states for a checkout session."""
+enum CheckoutStatus {
+  PENDING
+  APPROVED
+  DECLINED
+  EXPIRED
+}
+
+"""Lifecycle states for a payment."""
+enum PaymentStatus {
+  PENDING
+  AUTH_APPROVED
+  AUTH_DECLINED
+  CAPTURED
+  PARTIALLY_CAPTURED
+  VOIDED
+  REFUNDED
+  PARTIALLY_REFUNDED
+  SETTLED
+}
+
+"""Outcome of an Afterpay credit decision."""
+enum DecisionStatus {
+  APPROVED
+  DECLINED
+  REFERRED
+}
+
+"""Supported currencies."""
+enum Currency {
+  AUD
+  USD
+  GBP
+  CAD
+  NZD
+  EUR
+}
+
+"""Supported regions for Afterpay / Clearpay."""
+enum Region {
+  AU
+  US
+  GB
+  CA
+  NZ
+  FR
+  IT
+  ES
+}
+
+"""Category classification for merchant plan types."""
+enum PlanType {
+  PAY_IN_4
+  PAY_MONTHLY
+  PAY_IN_3
+}
+
+"""Status of a settlement batch."""
+enum SettlementStatus {
+  PENDING
+  PROCESSING
+  COMPLETE
+  FAILED
+}
+
+"""Status of a webhook registration."""
+enum WebhookStatus {
+  ACTIVE
+  INACTIVE
+  FAILED
+}
+
+"""Type of webhook event."""
+enum WebhookEventType {
+  PAYMENT_CREATED
+  PAYMENT_CAPTURED
+  PAYMENT_VOIDED
+  PAYMENT_REFUNDED
+  CHECKOUT_APPROVED
+  CHECKOUT_DECLINED
+  CHECKOUT_EXPIRED
+  SETTLEMENT_COMPLETE
+}
+
+# ─── Money / Amount Types ─────────────────────────────────────────────────────
+
+"""A monetary amount with currency."""
+type OrderAmount {
+  amount: Decimal!
+  currency: Currency!
+}
+
+"""Amount and currency for a refund."""
+type RefundAmount {
+  amount: Decimal!
+  currency: Currency!
+}
+
+# ─── Address ──────────────────────────────────────────────────────────────────
+
+"""A physical mailing or billing address."""
+type Address {
+  name: String
+  line1: String!
+  line2: String
+  suburb: String
+  city: String
+  state: String
+  postcode: String!
+  country: String!
+  phoneNumber: String
+}
+
+# ─── Item / Product Types ─────────────────────────────────────────────────────
+
+"""Category classification for a line item."""
+type ItemCategory {
+  id: ID!
+  name: String!
+  code: String
+}
+
+"""Quantity and unit for a line item."""
+type ItemQuantity {
+  value: Int!
+  unit: String
+}
+
+"""Full metadata for a line item."""
+type ItemDetails {
+  id: ID!
+  name: String!
+  sku: String
+  description: String
+  brand: String
+  category: ItemCategory
+  quantity: ItemQuantity!
+  unitPrice: OrderAmount!
+  imageUrl: URL
+  pageUrl: URL
+}
+
+"""A single line item in an Afterpay order."""
+type Item {
+  id: ID!
+  name: String!
+  sku: String
+  quantity: Int!
+  price: OrderAmount!
+  details: ItemDetails
+}
+
+# ─── Discount ─────────────────────────────────────────────────────────────────
+
+"""Full metadata for a discount applied to an order."""
+type DiscountDetails {
+  id: ID!
+  displayName: String!
+  amount: OrderAmount!
+  merchantReference: String
+  description: String
+}
+
+"""A discount applied to an order."""
+type Discount {
+  displayName: String!
+  amount: OrderAmount!
+  merchantReference: String
+  details: DiscountDetails
+}
+
+# ─── Shipping ─────────────────────────────────────────────────────────────────
+
+"""The carrier used for shipping a physical order."""
+type ShippingCarrier {
+  name: String!
+  code: String
+  trackingUrl: URL
+}
+
+"""Tracking information for a shipment."""
+type ShippingTracking {
+  trackingNumber: String!
+  carrier: ShippingCarrier
+  trackingUrl: URL
+  estimatedDelivery: DateTime
+}
+
+"""Full shipping metadata."""
+type ShippingDetails {
+  id: ID!
+  name: String!
+  address: Address!
+  carrier: ShippingCarrier
+  tracking: ShippingTracking
+  shippingAmount: OrderAmount
+  estimatedShipDate: DateTime
+}
+
+"""Shipping record for an order."""
+type Shipping {
+  name: String!
+  address: Address!
+  tracking: ShippingTracking
+  shippingAmount: OrderAmount
+  details: ShippingDetails
+}
+
+# ─── Consumer ─────────────────────────────────────────────────────────────────
+
+"""Consumer identity verification status."""
+type ConsumerVerification {
+  verified: Boolean!
+  method: String
+  verifiedAt: DateTime
+}
+
+"""Full consumer profile."""
+type ConsumerDetails {
+  id: ID!
+  givenNames: String!
+  surname: String!
+  email: String!
+  phoneNumber: String
+  dateOfBirth: String
+  billingAddress: Address
+  shippingAddress: Address
+  verification: ConsumerVerification
+  createdAt: DateTime!
+}
+
+"""An Afterpay consumer account."""
+type Consumer {
+  id: ID!
+  givenNames: String!
+  surname: String!
+  email: String!
+  phoneNumber: String
+  details: ConsumerDetails
+}
+
+# ─── Decision ─────────────────────────────────────────────────────────────────
+
+"""Full record of a credit decision including reason codes."""
+type DecisionDetails {
+  id: ID!
+  status: DecisionStatus!
+  amount: OrderAmount
+  reasonCodes: [String!]
+  decisionToken: String
+  expiresAt: DateTime
+  decidedAt: DateTime!
+}
+
+"""Afterpay credit decision for a consumer."""
+type Decision {
+  status: DecisionStatus!
+  amount: OrderAmount
+  token: String
+  expiresAt: DateTime
+  details: DecisionDetails
+}
+
+# ─── Installment / Schedule ───────────────────────────────────────────────────
+
+"""A single installment in a payment plan."""
+type Installment {
+  number: Int!
+  dueDate: DateTime!
+  amount: OrderAmount!
+}
+
+"""The full schedule of installments for a payment."""
+type InstallmentSchedule {
+  totalAmount: OrderAmount!
+  installments: [Installment!]!
+  frequency: String
+}
+
+"""Consumer-facing installment with its current status."""
+type PaymentInstallment {
+  number: Int!
+  dueDate: DateTime!
+  amount: OrderAmount!
+  paidDate: DateTime
+  status: String!
+}
+
+# ─── Order Types ──────────────────────────────────────────────────────────────
+
+"""A unique token identifying an Afterpay order."""
+type OrderToken {
+  token: String!
+  expiresAt: DateTime
+}
+
+"""Full order metadata."""
+type OrderDetails {
+  id: ID!
+  token: OrderToken!
+  status: OrderStatus!
+  totalAmount: OrderAmount!
+  consumer: Consumer
+  items: [Item!]
+  discounts: [Discount!]
+  shipping: Shipping
+  merchantReference: String
+  checkoutId: ID
+  paymentId: ID
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""Top-level Afterpay order tying checkout to payment."""
+type Order {
+  id: ID!
+  token: String!
+  status: OrderStatus!
+  totalAmount: OrderAmount!
+  merchantReference: String
+  createdAt: DateTime!
+  details: OrderDetails
+}
+
+# ─── Checkout Types ───────────────────────────────────────────────────────────
+
+"""The redirect URL provided to send the consumer to Afterpay."""
+type CheckoutURL {
+  redirectCheckoutUrl: URL!
+  token: String!
+  expiresAt: DateTime
+}
+
+"""Full details of a checkout session."""
+type CheckoutDetails {
+  id: ID!
+  token: String!
+  status: CheckoutStatus!
+  amount: OrderAmount!
+  consumer: Consumer
+  items: [Item!]
+  discounts: [Discount!]
+  shipping: Shipping
+  taxAmount: OrderAmount
+  merchantReference: String
+  redirectConfirmUrl: URL
+  redirectCancelUrl: URL
+  checkoutUrl: URL
+  createdAt: DateTime!
+  expiresAt: DateTime
+}
+
+"""An Afterpay checkout session created by a merchant."""
+type Checkout {
+  id: ID!
+  token: String!
+  status: CheckoutStatus!
+  amount: OrderAmount!
+  redirectCheckoutUrl: URL
+  expiresAt: DateTime
+  details: CheckoutDetails
+}
+
+# ─── Payment Event ────────────────────────────────────────────────────────────
+
+"""An individual event in a payment's history."""
+type PaymentEvent {
+  id: ID!
+  type: String!
+  amount: OrderAmount
+  timestamp: DateTime!
+  merchantReference: String
+  metadata: JSON
+}
+
+# ─── Capture ─────────────────────────────────────────────────────────────────
+
+"""Details of a capture operation."""
+type CaptureDetails {
+  id: ID!
+  paymentId: ID!
+  capturedAmount: OrderAmount!
+  merchantReference: String
+  requestId: String
+  capturedAt: DateTime!
+}
+
+"""A payment capture after consumer approval."""
+type Capture {
+  id: ID!
+  status: String!
+  capturedAmount: OrderAmount!
+  capturedAt: DateTime!
+  details: CaptureDetails
+}
+
+# ─── Void ─────────────────────────────────────────────────────────────────────
+
+"""Details of a void operation."""
+type VoidDetails {
+  id: ID!
+  paymentId: ID!
+  requestId: String
+  merchantReference: String
+  voidedAt: DateTime!
+}
+
+"""Cancellation of an authorized payment."""
+type Void {
+  id: ID!
+  status: String!
+  voidedAt: DateTime!
+  details: VoidDetails
+}
+
+# ─── Refund ───────────────────────────────────────────────────────────────────
+
+"""Full refund metadata."""
+type RefundDetails {
+  id: ID!
+  paymentId: ID!
+  merchantReference: String
+  requestId: String
+  refundedAmount: RefundAmount!
+  reason: String
+  refundedAt: DateTime!
+}
+
+"""A refund issued against a captured Afterpay payment."""
+type Refund {
+  id: ID!
+  refundId: String!
+  refundedAmount: RefundAmount!
+  merchantReference: String
+  refundedAt: DateTime!
+  details: RefundDetails
+}
+
+# ─── Payment Types ────────────────────────────────────────────────────────────
+
+"""Expanded payment record including full history."""
+type PaymentDetails {
+  id: ID!
+  token: String!
+  status: PaymentStatus!
+  totalAmount: OrderAmount!
+  openToCaptureAmount: OrderAmount
+  consumer: Consumer
+  items: [Item!]
+  events: [PaymentEvent!]
+  refunds: [Refund!]
+  installmentSchedule: InstallmentSchedule
+  merchantReference: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""Core Afterpay payment record."""
+type Payment {
+  id: ID!
+  token: String!
+  status: PaymentStatus!
+  totalAmount: OrderAmount!
+  merchantReference: String
+  createdAt: DateTime!
+  details: PaymentDetails
+}
+
+# ─── Merchant & Configuration ─────────────────────────────────────────────────
+
+"""A BNPL plan offered to a merchant (e.g. Pay in 4)."""
+type MerchantPlan {
+  id: ID!
+  type: PlanType!
+  name: String!
+  minimumAmount: OrderAmount
+  maximumAmount: OrderAmount
+  installmentCount: Int!
+  supportedRegions: [Region!]
+  active: Boolean!
+}
+
+"""Full merchant profile."""
+type MerchantDetails {
+  id: ID!
+  name: String!
+  legalName: String
+  email: String
+  website: URL
+  supportedCurrencies: [Currency!]
+  supportedRegions: [Region!]
+  plans: [MerchantPlan!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""An Afterpay merchant account."""
+type Merchant {
+  id: ID!
+  name: String!
+  details: MerchantDetails
+}
+
+"""Merchant-level Afterpay configuration."""
+type Configuration {
+  minimumAmount: OrderAmount
+  maximumAmount: OrderAmount
+  supportedCurrencies: [Currency!]!
+  supportedRegions: [Region!]!
+  availablePlans: [MerchantPlan!]!
+  cbcLimitAmount: OrderAmount
+  metadata: JSON
+}
+
+# ─── Settlement ───────────────────────────────────────────────────────────────
+
+"""Full settlement batch with line items."""
+type SettlementDetails {
+  id: ID!
+  batchId: String!
+  status: SettlementStatus!
+  grossAmount: OrderAmount!
+  feeAmount: OrderAmount!
+  netAmount: OrderAmount!
+  transactionCount: Int!
+  settledAt: DateTime
+  periodStart: DateTime!
+  periodEnd: DateTime!
+  paymentIds: [ID!]
+}
+
+"""A settlement batch record."""
+type Settlement {
+  id: ID!
+  batchId: String!
+  status: SettlementStatus!
+  netAmount: OrderAmount!
+  settledAt: DateTime
+  details: SettlementDetails
+}
+
+# ─── Webhook ──────────────────────────────────────────────────────────────────
+
+"""Webhook event payload delivered to a merchant endpoint."""
+type WebhookEvent {
+  id: ID!
+  type: WebhookEventType!
+  webhookId: ID!
+  payload: JSON!
+  deliveredAt: DateTime
+  attempts: Int!
+  success: Boolean!
+}
+
+"""A registered webhook endpoint for a merchant."""
+type Webhook {
+  id: ID!
+  url: URL!
+  status: WebhookStatus!
+  eventTypes: [WebhookEventType!]!
+  secret: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  recentEvents: [WebhookEvent!]
+}
+
+# ─── Auth / Key Types ─────────────────────────────────────────────────────────
+
+"""A merchant API key record."""
+type APIKey {
+  id: ID!
+  merchantId: ID!
+  keyPrefix: String!
+  description: String
+  active: Boolean!
+  createdAt: DateTime!
+  lastUsedAt: DateTime
+}
+
+"""An authentication or session token."""
+type Token {
+  token: String!
+  type: String!
+  expiresAt: DateTime
+  scopes: [String!]
+}
+
+# ─── Pagination ───────────────────────────────────────────────────────────────
+
+"""Pagination metadata."""
+type PageInfo {
+  totalResults: Int!
+  offset: Int!
+  limit: Int!
+}
+
+"""Paginated list of orders."""
+type OrderConnection {
+  orders: [Order!]!
+  pageInfo: PageInfo!
+}
+
+"""Paginated list of payments."""
+type PaymentConnection {
+  payments: [Payment!]!
+  pageInfo: PageInfo!
+}
+
+"""Paginated list of refunds."""
+type RefundConnection {
+  refunds: [Refund!]!
+  pageInfo: PageInfo!
+}
+
+"""Paginated list of settlements."""
+type SettlementConnection {
+  settlements: [Settlement!]!
+  pageInfo: PageInfo!
+}
+
+"""Paginated list of webhook events."""
+type WebhookEventConnection {
+  events: [WebhookEvent!]!
+  pageInfo: PageInfo!
+}
+
+# ─── Input Types ──────────────────────────────────────────────────────────────
+
+"""Input for a monetary amount."""
+input AmountInput {
+  amount: Decimal!
+  currency: Currency!
+}
+
+"""Input for an address."""
+input AddressInput {
+  name: String
+  line1: String!
+  line2: String
+  suburb: String
+  city: String
+  state: String
+  postcode: String!
+  country: String!
+  phoneNumber: String
+}
+
+"""Input for a line item."""
+input ItemInput {
+  name: String!
+  sku: String
+  quantity: Int!
+  price: AmountInput!
+  imageUrl: URL
+  pageUrl: URL
+  category: String
+}
+
+"""Input for a discount."""
+input DiscountInput {
+  displayName: String!
+  amount: AmountInput!
+  merchantReference: String
+}
+
+"""Input for shipping."""
+input ShippingInput {
+  name: String!
+  address: AddressInput!
+  shippingAmount: AmountInput
+}
+
+"""Input for a consumer."""
+input ConsumerInput {
+  givenNames: String!
+  surname: String!
+  email: String!
+  phoneNumber: String
+}
+
+"""Input for creating a checkout session."""
+input CreateCheckoutInput {
+  amount: AmountInput!
+  consumer: ConsumerInput!
+  items: [ItemInput!]
+  discounts: [DiscountInput!]
+  shipping: ShippingInput
+  taxAmount: AmountInput
+  merchantReference: String
+  redirectConfirmUrl: URL!
+  redirectCancelUrl: URL!
+  isCashbackApplicable: Boolean
+}
+
+"""Input for capturing a payment."""
+input CapturePaymentInput {
+  token: String!
+  merchantReference: String
+  requestId: String
+}
+
+"""Input for voiding a payment."""
+input VoidPaymentInput {
+  token: String!
+  merchantReference: String
+  requestId: String
+}
+
+"""Input for creating a refund."""
+input CreateRefundInput {
+  paymentId: ID!
+  refundAmount: AmountInput!
+  merchantReference: String
+  requestId: String
+  reason: String
+}
+
+"""Input for registering a webhook."""
+input CreateWebhookInput {
+  url: URL!
+  eventTypes: [WebhookEventType!]!
+  secret: String
+}
+
+"""Input for updating a webhook."""
+input UpdateWebhookInput {
+  url: URL
+  eventTypes: [WebhookEventType!]
+  status: WebhookStatus
+}
+
+"""Filter options for listing payments."""
+input PaymentFilter {
+  status: PaymentStatus
+  fromDate: DateTime
+  toDate: DateTime
+  merchantReference: String
+}
+
+"""Filter options for listing settlements."""
+input SettlementFilter {
+  status: SettlementStatus
+  fromDate: DateTime
+  toDate: DateTime
+}
+
+# ─── Root Types ───────────────────────────────────────────────────────────────
+
+type Query {
+  """Get the merchant configuration including limits and available plans."""
+  configuration: Configuration!
+
+  """Get a specific order by its token."""
+  order(token: String!): Order
+
+  """List orders with optional pagination."""
+  orders(offset: Int, limit: Int): OrderConnection!
+
+  """Get a specific checkout session by token."""
+  checkout(token: String!): Checkout
+
+  """Get a specific payment by its ID or token."""
+  payment(id: ID, token: String): Payment
+
+  """List payments with optional filters."""
+  payments(filter: PaymentFilter, offset: Int, limit: Int): PaymentConnection!
+
+  """Get a specific refund."""
+  refund(id: ID!): Refund
+
+  """List refunds for a payment."""
+  refunds(paymentId: ID!, offset: Int, limit: Int): RefundConnection!
+
+  """Get merchant profile."""
+  merchant: Merchant!
+
+  """Get a settlement batch."""
+  settlement(id: ID!): Settlement
+
+  """List settlement batches."""
+  settlements(filter: SettlementFilter, offset: Int, limit: Int): SettlementConnection!
+
+  """List registered webhooks."""
+  webhooks: [Webhook!]!
+
+  """Get a specific webhook by ID."""
+  webhook(id: ID!): Webhook
+
+  """List events for a webhook."""
+  webhookEvents(webhookId: ID!, offset: Int, limit: Int): WebhookEventConnection!
+
+  """List API keys for the authenticated merchant."""
+  apiKeys: [APIKey!]!
+}
+
+type Mutation {
+  """Create a new Afterpay checkout session."""
+  createCheckout(input: CreateCheckoutInput!): Checkout!
+
+  """Capture an authorized Afterpay payment."""
+  capturePayment(input: CapturePaymentInput!): Capture!
+
+  """Void an authorized Afterpay payment."""
+  voidPayment(input: VoidPaymentInput!): Void!
+
+  """Create a refund for a captured payment."""
+  createRefund(input: CreateRefundInput!): Refund!
+
+  """Register a new webhook endpoint."""
+  createWebhook(input: CreateWebhookInput!): Webhook!
+
+  """Update an existing webhook."""
+  updateWebhook(id: ID!, input: UpdateWebhookInput!): Webhook!
+
+  """Delete a webhook registration."""
+  deleteWebhook(id: ID!): Boolean!
+
+  """Rotate an API key."""
+  rotateAPIKey(id: ID!): APIKey!
+}
+
+type Subscription {
+  """Subscribe to real-time payment status changes."""
+  paymentStatusChanged(paymentId: ID!): Payment!
+
+  """Subscribe to new webhook events."""
+  webhookEventReceived(webhookId: ID!): WebhookEvent!
+
+  """Subscribe to settlement status changes."""
+  settlementStatusChanged(settlementId: ID!): Settlement!
+}
