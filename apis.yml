@@ -59,7 +59,7 @@ common:
   url: rate-limits/afterpay-rate-limits.yml
 - type: FinOps
   url: finops/afterpay-finops.yml
-- type: LLMsTxt
+- type: LlmsText
   url: https://developers.afterpay.com/llms.txt
 maintainers:
 - FN: Kin Lane
