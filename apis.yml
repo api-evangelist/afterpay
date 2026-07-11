@@ -47,6 +47,10 @@ apis:
   - type: Documentation
     url: https://developers.afterpay.com/afterpay-online/reference
 common:
+- type: VulnerabilityDisclosure
+  url: security/afterpay-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/afterpay-domain-security.yml
 - type: GitHubOrganization
   url: https://github.com/afterpay
 - type: LinkedIn
