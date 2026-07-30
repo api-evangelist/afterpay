@@ -5,7 +5,19 @@ kind: company
 description: Afterpay (acquired by Block / Square) is a buy-now-pay-later platform
   offering Pay-in-4 installments at thousands of merchants. APIs for merchants to
   integrate via Square or direct.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/afterpay.png
 tags:
 - Fintech
 - BNPL
