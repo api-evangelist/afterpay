@@ -5,6 +5,17 @@ kind: company
 description: Afterpay (acquired by Block / Square) is a buy-now-pay-later platform
   offering Pay-in-4 installments at thousands of merchants. APIs for merchants to
   integrate via Square or direct.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
