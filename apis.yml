@@ -31,6 +31,12 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/afterpay.png
 tags:
 - Fintech
+- Buy Now Pay Later
+- Payments
+- Consumer
+- Block
+tags_raw:
+- Fintech
 - BNPL
 - Payments
 - Consumer
@@ -44,6 +50,9 @@ apis:
   humanURL: https://developers.afterpay.com/afterpay-online/reference
   baseURL: https://api.afterpay.com
   tags:
+  - Checkout
+  - Buy Now Pay Later
+  tags_raw:
   - Checkout
   - BNPL
   properties:
