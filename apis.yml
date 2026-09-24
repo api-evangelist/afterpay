@@ -35,12 +35,14 @@ tags:
 - Payments
 - Consumer
 - Block
+- Australia
 tags_raw:
 - Fintech
 - BNPL
 - Payments
 - Consumer
 - Block
+- Australia
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.23'
@@ -58,8 +60,6 @@ apis:
   properties:
   - type: Documentation
     url: https://developers.afterpay.com/afterpay-online/reference
-  - url: graphql/afterpay-graphql.md
-    type: GraphQL
 - name: Afterpay Payments API
   description: Auth, capture, void and refund Afterpay payments.
   humanURL: https://developers.afterpay.com/afterpay-online/reference
