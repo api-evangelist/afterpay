@@ -2,17 +2,17 @@
 kin_checks:
   slug: afterpay
   schema_version: 0.23.0
-  scored_at: '2026-10-03'
-  run_ts: 2026-10-03T024842
+  scored_at: '2026-10-11'
+  run_ts: 2026-10-11T110117
   note: Actionable checks (missed + partial) in `checks`, plus the ids that did not
     apply in `na`. Everything else in rubric/scoring-0.23.0.yml was earned; counts
     below let you verify that.
   counts:
     total: 153
-    earned: 14
-    partial: 4
+    earned: 12
+    partial: 5
     missed: 92
-    na: 43
+    na: 44
   checks:
   - id: description_substantive
     status: missed
@@ -209,6 +209,10 @@ kin_checks:
   - id: plans_present
     status: partial
     earned: 2.0
+  - id: mcp_server
+    status: partial
+    earned: 4.8
+    detail: 'grade: documented'
   - id: rate_limit_signal
     status: partial
     earned: 0.88
@@ -227,6 +231,7 @@ kin_checks:
   - graphql_type_depth
   - inbound_contract_published
   - info_complete
+  - mcp_endpoint_discoverable
   - messages_with_schema
   - oauth_flows_current
   - oauth_scopes_enumerated
