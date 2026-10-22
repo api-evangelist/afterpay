@@ -1,0 +1,1666 @@
+openapi: 3.1.0
+info:
+  title: Afterpay API
+  version: '2026-10-21'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-21: 38 operation(s) read from 40 public documentation page(s) (each
+    operation names its page in x-source). This is not the provider''s published contract; Afterpay has published no machine-readable contract
+    that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 36
+    documentation: 2
+    pages-with-code: 40
+    pages-read: 40
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-21'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/auth
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/get-grant
+  - https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/alias-grant
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/create-grant
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/revoke-grant
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/orders/create-grant
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/service-status/ping
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/upload-file
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/void-payment
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/checkouts/get-checkout
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/retrieve-file
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/create-refund
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/list-payments
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/accept-dispute
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/receive-dispute
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/capture-payment
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/retrieve-dispute
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/checkouts/create-checkout-1
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/respond-to-dispute
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/start-grant-approval
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction/authentication
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/capture-full-payment
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/get-payment-by-token
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/configuration/get-configuration
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/get-payment-by-order-id
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/update-shipping-courier
+  - https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/authentication
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/reverse-payment-by-token
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/auth
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/start-billing-agreement-link
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/update-payment-by-order-id
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/configuration/get-configuration-mappings
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/get-billing-agreement
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/alias-billing-agreement
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/cancel-billing-agreement
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/create-billing-agreement
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/retrieve-billing-agreement
+  - https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/cancel-billing-agreement-alt
+servers:
+- url: https://global-api-sandbox.afterpay.com
+paths:
+  /ping:
+    get:
+      operationId: get_ping
+      tags:
+      - Ping
+      summary: GET /ping
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/service-status/ping
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl curl https://global-api-sandbox.afterpay.com/ping \\ -H \" User-Agent: User-Agent \" 200 Retrieved \" pong \" This endpoint\
+          \ can be used to check that the service is available and reachable. \n Unlike all other endpoints, this endpoint does not require authentication,\
+          \ and responds with text/plain instead of application/json . \n Connection Timeouts \n Timeout Time (Seconds) Open 10 Read 20 Headers\
+          \ Use"
+  /v2/billing-agreements:
+    post:
+      operationId: post_v2_billing_agreements
+      tags:
+      - Billing Agreements
+      summary: POST /v2/billing-agreements
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/create-billing-agreement
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2BillingAgreementsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/billing-agreements \ -H " User-Agent: User-Agent " \ -H " Content-Type:
+          application/json " \ -u " <username>:<password> " \ -d '' { "token": "005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2" } '' 200
+          Successful { " token " : " 005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2 " , " type " : " BILLING " , " status " : " ACTIVE
+          " ,'
+  /v2/billing-agreements/alias:
+    post:
+      operationId: post_v2_billing_agreements_alias
+      tags:
+      - Billing Agreements
+      summary: POST /v2/billing-agreements/alias
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/alias-billing-agreement
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2BillingAgreementsAliasResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/billing-agreements/alias \ -H " User-Agent: User-Agent " \ -H "
+          Content-Type: application/json " \ -u " <username>:<password> " \ -d '' { "token": "005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2"
+          } '' 200 Successful { " token " : " ba_alias_def789ghi012 " , " expiry " : " 2025-03-04T22:13:45Z " } Creates an alias for an existing
+          bil'
+  /v2/billing-agreements/cancel:
+    put:
+      operationId: put_v2_billing_agreements_cancel
+      tags:
+      - Billing Agreements
+      summary: PUT /v2/billing-agreements/cancel
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/cancel-billing-agreement-alt
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutV2BillingAgreementsCancelResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X PUT https://global-api-sandbox.afterpay.com/v2/billing-agreements/cancel \ -H " User-Agent: User-Agent " \ -H "
+          Content-Type: application/json " \ -u " <username>:<password> " \ -d '' { "token": "ba_def456ghi789" } '' 200 Updated { " token " :
+          " 005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2 " , " type " : " BILLING " , " status " : " ACTIVE " , " created " : " 2024-03-04T12:00:0'
+  /v2/billing-agreements/retrieve:
+    post:
+      operationId: post_v2_billing_agreements_retrieve
+      tags:
+      - Billing Agreements
+      summary: POST /v2/billing-agreements/retrieve
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/retrieve-billing-agreement
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2BillingAgreementsRetrieveResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/billing-agreements/retrieve \ -H " User-Agent: User-Agent " \ -H
+          " Content-Type: application/json " \ -u " <username>:<password> " \ -d '' { "token": "ba_jkl012mno345" } '' 200 Successful { " token
+          " : " 005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2 " , " type " : " BILLING " , " status " : " ACTIVE " , " created " : " 2024-03-04T1'
+  /v2/billing-agreements/token:
+    delete:
+      operationId: delete_v2_billing_agreements_token
+      tags:
+      - Billing Agreements
+      summary: DELETE /v2/billing-agreements/token
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/cancel-billing-agreement
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteV2BillingAgreementsTokenResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X DELETE https://global-api-sandbox.afterpay.com/v2/billing-agreements/token \ -H " User-Agent: User-Agent " \ -u
+          " <username>:<password> " 200 Deleted { " token " : " 005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2 " , " type " : " BILLING
+          " , " status " : " ACTIVE " , " created " : " 2024-03-04T12:00:00Z " , " merchantReference " : " merchant_ref_123 " , " cancelled "
+          : " 2024-0'
+    get:
+      operationId: get_v2_billing_agreements_token
+      tags:
+      - Billing Agreements
+      summary: GET /v2/billing-agreements/token
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/get-billing-agreement
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV2BillingAgreementsTokenResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl https://global-api-sandbox.afterpay.com/v2/billing-agreements/token \ -H " User-Agent: User-Agent " \ -u " <username>:<password>
+          " 200 Retrieved { " token " : " 005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2 " , " type " : " BILLING " , " status " : " ACTIVE
+          " , " created " : " 2024-03-04T12:00:00Z " , " merchantReference " : " merchant_ref_123 " , " cancelled " : " 2024-03-05T12:'
+  /v2/checkouts:
+    post:
+      operationId: post_v2_checkouts
+      tags:
+      - Checkouts
+      summary: POST /v2/checkouts
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/checkouts/create-checkout-1
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2CheckoutsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/checkouts \ -H " User-Agent: User-Agent " \ -H " Content-Type:
+          application/json " \ -u " <username>:<password> " \ -d '' { "amount": { "amount": "100.00", "currency": "AUD" }, "consumer": { "email":
+          "test@example.com", "givenNames": "Joe", "surname": "Consumer", "phoneNumber": "0400 000 000" } } '' 201 Example 1 { " token " : " 002.ejh49ov'
+  /v2/checkouts/token:
+    get:
+      operationId: get_v2_checkouts_token
+      tags:
+      - Checkouts
+      summary: GET /v2/checkouts/token
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/checkouts/get-checkout
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV2CheckoutsTokenResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl https://global-api-sandbox.afterpay.com/v2/checkouts/token \ -H " User-Agent: User-Agent " \ -u " <username>:<password>
+          " 200 Retrieved { " amount " : { " amount " : " 100.00 " , " currency " : " AUD " } , " consumer " : { " email " : " test@example.com
+          " , " givenNames " : " Joe " , " surname " : " Consumer " , " phoneNumber " : " 0400 000 000 " } , " agreements " : [ { " type " : "
+          BIL'
+  /v2/configuration:
+    get:
+      operationId: get_v2_configuration
+      tags:
+      - Configuration
+      summary: Get Configuration.
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction/authentication
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v2/configuration/mappings:
+    get:
+      operationId: get_v2_configuration_mappings
+      tags:
+      - Configuration
+      summary: GET /v2/configuration/mappings
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/configuration/get-configuration-mappings
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV2ConfigurationMappingsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl https://global-api-sandbox.afterpay.com/v2/configuration/mappings \ -H " User-Agent: User-Agent " \ -u " <username>:<password>
+          " 200 Retrieved { " name " : " Good Pour Coffee " , " externalBrandId " : " BRAND_bmxk000ucdrvljq0000yhild " } To set-up Cash App Pay
+          on file, use this endpoint to retrieve your Cash App Pay brand ID. Authentication Authorization Basic Basic authentication of the'
+  /v2/disputes:
+    get:
+      operationId: get_v2_disputes
+      tags:
+      - Disputes
+      summary: GET /v2/disputes
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/retrieve-dispute
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV2DisputesResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -G https://global-api-sandbox.afterpay.com/v2/disputes \ -H " Accept: application/json " \ -u " <username>:<password>
+          " \ -d order= 1 \ -d merchant=merchant \ -d status=status \ --data-urlencode openedAfter=2024-01-15T09:30:00Z \ --data-urlencode openedBefore=2024-01-15T09:30:00Z
+          \ -d offset= 1 \ -d limit= 1 Try it 200 Retrieved { " data " : [ { " id " : " dp_N64jYg4RC4ZBUsXjLzE3W5 " , "'
+  /v2/disputes/dispute_id:
+    get:
+      operationId: get_v2_disputes_dispute_id
+      tags:
+      - Disputes
+      summary: GET /v2/disputes/dispute_id
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/receive-dispute
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV2DisputesDisputeIdResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl https://global-api-sandbox.afterpay.com/v2/disputes/dispute_id \ -H " Accept: application/json " \ -u " <username>:<password>
+          " Try it 200 Retrieved { " id " : " dp_N64jYg4RC4ZBUsXjLzE3W5 " , " order " : " 123456789 " , " amount " : " 48.46 " , " currency "
+          : " AUD " , " reason " : " product_not_received " , " status " : " needs_response " , " open " : true , " responseDueBy " : 16918848'
+    post:
+      operationId: post_v2_disputes_dispute_id
+      tags:
+      - Disputes
+      summary: POST /v2/disputes/dispute_id
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/respond-to-dispute
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2DisputesDisputeIdResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/disputes/dispute_id \ -H " Accept: Accept " \ -H " Content-Type:
+          application/json " \ -u " <username>:<password> " \ -d '' { "productDescription": "Women '' \'' '' s running shoes, size 8, ordered
+          on 2023-08-01", "shippingDocumentation": "fi_7wvZBQqWzoPGLxvaMkpTjX", "shippingAddress": "123 Main St, Melbourne VIC 3000, AU", "shippingDate":
+          "2'
+  /v2/disputes/dispute_id/accept:
+    get:
+      operationId: get_v2_disputes_dispute_id_accept
+      tags:
+      - Disputes
+      summary: GET /v2/disputes/dispute_id/accept
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/accept-dispute
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV2DisputesDisputeIdAcceptResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -G https://global-api-sandbox.afterpay.com/v2/disputes/dispute_id/accept \ -H " Accept: Accept " \ -u " <username>:<password>
+          " \ -d undefined=string Try it 200 Retrieved { " id " : " dp_N64jYg4RC4ZBUsXjLzE3W5 " , " order " : " 123456789 " , " amount " : " 48.46
+          " , " currency " : " AUD " , " reason " : " product_not_received " , " status " : " needs_response " , " open " : true , " resp'
+  /v2/disputes/files:
+    post:
+      operationId: post_v2_disputes_files
+      tags:
+      - Disputes
+      summary: POST /v2/disputes/files
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/upload-file
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2DisputesFilesResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/disputes/files \ -H " Content-Type: application/json " \ -u " <username>:<password>
+          " \ -d '' { "file": { "key": "dispute_evidence_20240115.pdf" }, "fileType": "dispute_evidence" } '' Try it 200 Successful { " id " :
+          " fi_7wvZBQqWzoPGLxvaMkpTjX " , " createdAt " : " 2024-01-15T09:30:00Z " , " expiresAt " : " 2024-02-14T09:30:00Z " } Use th'
+  /v2/disputes/files/id:
+    get:
+      operationId: get_v2_disputes_files_id
+      tags:
+      - Disputes
+      summary: GET /v2/disputes/files/id
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/disputes/retrieve-file
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV2DisputesFilesIdResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -G https://global-api-sandbox.afterpay.com/v2/disputes/files/id \ -H " Accept: Accept " \ -u " <username>:<password>
+          " \ -d id=id Try it 200 Retrieved { " url " : " https://dispute-attachment.s3.amazonaws.com/fi_7GciehSJnhRdUF9acxsB63 " , " expiresAt
+          " : " 2023-08-18T02:05:23Z " } Use this endpoint to retrieve files for disputes. Authentication Authorization Basic Basic authentication
+          of'
+  /v2/grants:
+    post:
+      operationId: post_v2_grants
+      tags:
+      - Grants
+      summary: POST /v2/grants
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/create-grant
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2GrantsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/grants \ -H " User-Agent: User-Agent " \ -H " Content-Type: application/json
+          " \ -u " <username>:<password> " \ -d '' { "requestId": "123e4567-e89b-12d3-a456-426614174000", "token": "005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2"
+          } '' 201 Created { " grant " : { " id " : " 005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2 " , "'
+  /v2/grants/alias:
+    post:
+      operationId: post_v2_grants_alias
+      tags:
+      - Grants
+      summary: POST /v2/grants/alias
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/alias-grant
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2GrantsAliasResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/grants/alias \ -H " User-Agent: User-Agent " \ -H " Content-Type:
+          application/json " \ -u " <username>:<password> " \ -d '' { "token": "005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2" } '' 200
+          Successful { " token " : " ba_alias_def789ghi012 " , " expiry " : " 2025-03-04T22:13:45Z " } Creates an alias for an existing grant
+          to help l'
+  /v2/grants/approvals:
+    post:
+      operationId: post_v2_grants_approvals
+      tags:
+      - Grants
+      summary: POST /v2/grants/approvals
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/start-grant-approval
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2GrantsApprovalsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/grants/approvals \ -H " User-Agent: User-Agent " \ -H " Content-Type:
+          application/json " \ -u " <username>:<password> " \ -d '' { "grants": [ { "type": "ON_FILE" } ], "merchant": { "redirectConfirmUrl":
+          "https://example.com/approval/confirm", "redirectCancelUrl": "https://example.com/approval/cancel" } } '' 200 Successful { " token "
+          : " b'
+  /v2/grants/grantId:
+    get:
+      operationId: get_v2_grants_grantId
+      tags:
+      - Grants
+      summary: GET /v2/grants/grantId
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/get-grant
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV2GrantsGrantidResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl https://global-api-sandbox.afterpay.com/v2/grants/grantId \ -H " User-Agent: User-Agent " \ -u " <username>:<password>
+          " 200 Retrieved { " grant " : { " id " : " 005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2 " , " type " : " ON_FILE " , " status
+          " : " ACTIVE " , " created " : " 2024-03-04T12:00:00Z " , " merchantReference " : " merchant_ref_123 " , " cancelled " : " 2024-03-05T12'
+  /v2/grants/grantId/revoke:
+    post:
+      operationId: post_v2_grants_grantId_revoke
+      tags:
+      - Grants
+      summary: POST /v2/grants/grantId/revoke
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/revoke-grant
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2GrantsGrantidRevokeResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/grants/grantId/revoke \ -H " User-Agent: User-Agent " \ -u " <username>:<password>
+          " 200 Successful { " grant " : { " id " : " 005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2 " , " type " : " ON_FILE " , " status
+          " : " ACTIVE " , " created " : " 2024-03-04T12:00:00Z " , " merchantReference " : " merchant_ref_123 " , " cancelled " :'
+  /v2/grants/start:
+    post:
+      operationId: post_v2_grants_start
+      tags:
+      - Grants
+      summary: POST /v2/grants/start
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/grants/start-billing-agreement-link
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2GrantsStartResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/grants/start \ -H " User-Agent: User-Agent " \ -H " Content-Type:
+          application/json " \ -u " <username>:<password> " \ -d '' { "alias": "my-afterpay-email@gmail.com", "requestId": "123e4567-e89b-12d3-a456-426614174000"
+          } '' 201 Created { " token " : " 005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2 " , " requestId " : " 123e4567-e89b-'
+  /v2/oauth2/token:
+    get:
+      operationId: get_v2_oauth2_token
+      tags:
+      - Oauth2
+      summary: GET /v2/oauth2/token
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction/authentication
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl javascript ruby python GET /v2/configuration HTTP / 1.1 Host : global-api-sandbox.afterpay.com Authorization : Basic MzI6YWJjZGVmZ2g=\
+          \ \n Consider the following example: \n Merchant ID Secret Key 32 abcdefgh \n In conventional HTTP terms, “Merchant ID” is the username\
+          \ and “Secret Key” is the password .\nAfterpay provides merchant accounts per region, and each merchant account has unique API creden"
+    post:
+      operationId: post_v2_oauth2_token
+      tags:
+      - Oauth2
+      summary: Access token request using Client Credentials Authentication.
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction/authentication
+      parameters:
+      - name: grant_type
+        in: query
+        required: true
+        schema:
+          type: string
+        description: OAuth grant type (client_credentials)
+      - name: client_id
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Merchant ID
+      - name: client_secret
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Secret Key
+      - name: scope
+        in: query
+        required: true
+        schema:
+          type: string
+        description: OAuth scope (merchant_api_v2 or merchant_api_v1)
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2Oauth2TokenResponse'
+      x-evidence:
+        kind: documentation
+  /v2/orders:
+    post:
+      operationId: post_v2_orders
+      tags:
+      - Orders
+      summary: POST /v2/orders
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/orders/create-grant
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2OrdersResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/orders \ -H " User-Agent: User-Agent " \ -H " Content-Type: application/json
+          " \ -u " <username>:<password> " \ -d '' { "requestId": "123e4567-e89b-12d3-a456-426614174000", "grantId": "005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2",
+          "amount": { "amount": "100.00", "currency": "AUD" }, "enrichments": { "initiation": { "actor": "CUS'
+  /v2/payments:
+    get:
+      operationId: get_v2_payments
+      tags:
+      - Payments
+      summary: GET /v2/payments
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV2PaymentsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl http://global-api-sandbox.afterpay.com/v2/payments?includeNextLink= true \\ -H ' Authorization: Basic <Base64EncodedCredentials>\
+          \ ' \\ -H ' User-Agent: <MyUserAgent> ' \\ -H ' Accept: application/json ' \n Example response \n { \" totalResults \" : 210 , \" limit\
+          \ \" : 20 , \" nextPageUrl \" : \" http://global-api-sandbox.afterpay.com/v2/payments?cursor=MjAyMTExMDlUMDUzNTI1LjI1Nlo%3D%3AMDAxLjVuNDhzbm1qNTh0"
+  /v2/payments/auth:
+    post:
+      operationId: post_v2_payments_auth
+      tags:
+      - Payments
+      summary: POST /v2/payments/auth
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/auth
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/payments/auth \ -H " User-Agent: User-Agent " \ -H " Content-Type:
+          application/json " \ -u " <username>:<password> " \ -d '' { "token": "005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2", "requestid":
+          "d22f5305-05f3-48a0-9131-a4e6e5f58b9a", "merchantReference": "merchant-order-123" } '' 201 Created { " id " : " 300000016189 " , " toke'
+  /v2/payments/capture:
+    post:
+      operationId: post_v2_payments_capture
+      tags:
+      - Payments
+      summary: POST /v2/payments/capture
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/capture-full-payment
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/payments/capture \ -H " User-Agent: User-Agent " \ -H " Content-Type:
+          application/json " \ -u " <username>:<password> " \ -d '' { "token": "{{afterpay_checkout_token}}", "merchantReference": "{{merchant_order_number}}"
+          } '' 201 Created { " id " : " 300000016189 " , " token " : " 002.6bjbsaowxvfqam2nw4u3xudppheuh4gsuat3n2w3f6t44euzgy " , " '
+  /v2/payments/orderId:
+    get:
+      operationId: get_v2_payments_orderId
+      tags:
+      - Payments
+      summary: GET /v2/payments/orderId
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/get-payment-by-order-id
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl https://global-api-sandbox.afterpay.com/v2/payments/orderId \ -H " User-Agent: User-Agent " \ -u " <username>:<password>
+          " 200 Retrieved { " id " : " 300000016189 " , " token " : " 002.6bjbsaowxvfqam2nw4u3xudppheuh4gsuat3n2w3f6t44euzgy " , " status " :
+          " APPROVED " , " created " : " 2024-03-11T20:11:42.487Z " , " originalAmount " : { " amount " : " 37.00 " , " currency " : " USD " }
+          , " '
+    put:
+      operationId: put_v2_payments_orderId
+      tags:
+      - Payments
+      summary: PUT /v2/payments/orderId
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/update-payment-by-order-id
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutV2PaymentsOrderidResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X PUT https://global-api-sandbox.afterpay.com/v2/payments/orderId \ -H " User-Agent: User-Agent " \ -H " Content-Type:
+          application/json " \ -u " <username>:<password> " \ -d '' { "merchantReference": "ORD-20240615-98765" } '' 201 Created { " id " : "
+          APY1234567890 " , " token " : " chk_4a5f6b7c8d9e0f1a2b3c4d5e6f7g8h9i " , " status " : " APPROVED " , " created " : null , " originalAmount
+          "'
+  /v2/payments/orderId/capture:
+    post:
+      operationId: post_v2_payments_orderId_capture
+      tags:
+      - Payments
+      summary: POST /v2/payments/orderId/capture
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/capture-payment
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/payments/orderId/capture \ -H " User-Agent: User-Agent " \ -H "
+          Content-Type: application/json " \ -u " <username>:<password> " \ -d '' {} '' 201 Created { " id " : " 300000016189 " , " token " :
+          " 002.6bjbsaowxvfqam2nw4u3xudppheuh4gsuat3n2w3f6t44euzgy " , " status " : " APPROVED " , " created " : " 2024-03-11T20:11:42.487Z "
+          , " originalA'
+  /v2/payments/orderId/courier:
+    put:
+      operationId: put_v2_payments_orderId_courier
+      tags:
+      - Payments
+      summary: PUT /v2/payments/orderId/courier
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/update-shipping-courier
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X PUT https://global-api-sandbox.afterpay.com/v2/payments/orderId/courier \ -H " User-Agent: User-Agent " \ -H "
+          Content-Type: application/json " \ -u " <username>:<password> " \ -d '' {} '' 200 Updated { " id " : " 300000016189 " , " token " :
+          " 002.6bjbsaowxvfqam2nw4u3xudppheuh4gsuat3n2w3f6t44euzgy " , " status " : " APPROVED " , " created " : " 2024-03-11T20:11:42.487Z "
+          , " originalAm'
+  /v2/payments/orderId/refund:
+    post:
+      operationId: post_v2_payments_orderId_refund
+      tags:
+      - Payments
+      summary: POST /v2/payments/orderId/refund
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/create-refund
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV2PaymentsOrderidRefundResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/payments/orderId/refund \ -H " User-Agent: User-Agent " \ -H "
+          Content-Type: application/json " \ -u " <username>:<password> " \ -d '' { "requestId": "49efce77-4bf2-4e41-86e8-c2b92f493c2a", "amount":
+          { "amount": "10.00", "currency": "AUD" }, "merchantReference": "merchantRefundId-1234", "refundMerchantReference": "merchantRefundId-1234"
+          }'
+  /v2/payments/orderId/void:
+    post:
+      operationId: post_v2_payments_orderId_void
+      tags:
+      - Payments
+      summary: POST /v2/payments/orderId/void
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/void-payment
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/payments/orderId/void \ -H " User-Agent: User-Agent " \ -H " Content-Type:
+          application/json " \ -u " <username>:<password> " \ -d '' {} '' 201 Created { " id " : " 300000016189 " , " token " : " 002.6bjbsaowxvfqam2nw4u3xudppheuh4gsuat3n2w3f6t44euzgy
+          " , " status " : " APPROVED " , " created " : " 2024-03-11T20:11:42.487Z " , " originalAmou'
+  /v2/payments/token{token}:
+    get:
+      operationId: get_v2_payments_token_token
+      tags:
+      - Payments
+      summary: GET /v2/payments/token:token
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/get-payment-by-token
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl https://global-api-sandbox.afterpay.com/v2/payments/token:token \ -H " User-Agent: User-Agent " \ -u " <username>:<password>
+          " 200 Retrieved { " id " : " 300000016189 " , " token " : " 002.6bjbsaowxvfqam2nw4u3xudppheuh4gsuat3n2w3f6t44euzgy " , " status " :
+          " APPROVED " , " created " : " 2024-03-11T20:11:42.487Z " , " originalAmount " : { " amount " : " 37.00 " , " currency " : " USD " } '
+  /v2/payments/token{token}/reversal:
+    post:
+      operationId: post_v2_payments_token_token_reversal
+      tags:
+      - Payments
+      summary: POST /v2/payments/token:token/reversal
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/payments/reverse-payment-by-token
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/payments/token:token/reversal \ -H " User-Agent: User-Agent " \
+          -H " Content-Type: application/json " \ -u " <username>:<password> " \ -d '' {} '' 204 No Content {} This endpoint performs a reversal
+          of the checkout that is used to initiate the Afterpay payment process. This will cancel the order asynchronously as soon as it is created
+          with'
+  /v2/recurring-payments/auth:
+    post:
+      operationId: post_v2_recurring_payments_auth
+      tags:
+      - Recurring Payments
+      summary: POST /v2/recurring-payments/auth
+      x-source: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/billing-agreements-deprecated/auth
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -X POST https://global-api-sandbox.afterpay.com/v2/recurring-payments/auth \ -H " User-Agent: User-Agent " \ -H "
+          Content-Type: application/json " \ -u " <username>:<password> " \ -d '' { "requestId": "123e4567-e89b-12d3-a456-426614174000", "paymentMethod":
+          { "token": "005.2fkv5o963b132z8ppa34srlh60987y87d55re237wsg9tr4q2", "type": "BILLING_AGREEMENT" }, "amount": { "amount": "100.00", "c'
+components:
+  schemas:
+    PostV2BillingAgreementsResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' type ':
+          type: string
+        ' status ':
+          type: string
+        ' created ':
+          type: string
+        ' merchantReference ':
+          type: string
+        ' cancelled ':
+          type: string
+        ' expires ':
+          type: string
+        ' events ':
+          type: array
+          items:
+            type: object
+            properties:
+              ' type ':
+                type: string
+              ' created ':
+                type: string
+              ' amount ':
+                type: object
+                properties:
+                  ' amount ':
+                    type: string
+                  ' currency ':
+                    type: string
+              ' status ':
+                type: string
+              ' merchantReference ':
+                type: string
+              ' orderId ':
+                type: integer
+        ' requestId ':
+          type: string
+        ' consumerReference ':
+          type: string
+        ' email ':
+          type: string
+    PostV2BillingAgreementsAliasResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' expiry ':
+          type: string
+    PutV2BillingAgreementsCancelResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' type ':
+          type: string
+        ' status ':
+          type: string
+        ' created ':
+          type: string
+        ' merchantReference ':
+          type: string
+        ' cancelled ':
+          type: string
+        ' expires ':
+          type: string
+        ' events ':
+          type: array
+          items:
+            type: object
+            properties:
+              ' type ':
+                type: string
+              ' created ':
+                type: string
+              ' amount ':
+                type: object
+                properties:
+                  ' amount ':
+                    type: string
+                  ' currency ':
+                    type: string
+              ' status ':
+                type: string
+              ' merchantReference ':
+                type: string
+              ' orderId ':
+                type: integer
+        ' requestId ':
+          type: string
+        ' consumerReference ':
+          type: string
+        ' email ':
+          type: string
+    PostV2BillingAgreementsRetrieveResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' type ':
+          type: string
+        ' status ':
+          type: string
+        ' created ':
+          type: string
+        ' merchantReference ':
+          type: string
+        ' cancelled ':
+          type: string
+        ' expires ':
+          type: string
+        ' events ':
+          type: array
+          items:
+            type: object
+            properties:
+              ' type ':
+                type: string
+              ' created ':
+                type: string
+              ' amount ':
+                type: object
+                properties:
+                  ' amount ':
+                    type: string
+                  ' currency ':
+                    type: string
+              ' status ':
+                type: string
+              ' merchantReference ':
+                type: string
+              ' orderId ':
+                type: integer
+        ' requestId ':
+          type: string
+        ' consumerReference ':
+          type: string
+        ' email ':
+          type: string
+    DeleteV2BillingAgreementsTokenResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' type ':
+          type: string
+        ' status ':
+          type: string
+        ' created ':
+          type: string
+        ' merchantReference ':
+          type: string
+        ' cancelled ':
+          type: string
+        ' expires ':
+          type: string
+        ' events ':
+          type: array
+          items:
+            type: object
+            properties:
+              ' type ':
+                type: string
+              ' created ':
+                type: string
+              ' amount ':
+                type: object
+                properties:
+                  ' amount ':
+                    type: string
+                  ' currency ':
+                    type: string
+              ' status ':
+                type: string
+              ' merchantReference ':
+                type: string
+              ' orderId ':
+                type: integer
+        ' requestId ':
+          type: string
+        ' consumerReference ':
+          type: string
+        ' email ':
+          type: string
+    GetV2BillingAgreementsTokenResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' type ':
+          type: string
+        ' status ':
+          type: string
+        ' created ':
+          type: string
+        ' merchantReference ':
+          type: string
+        ' cancelled ':
+          type: string
+        ' expires ':
+          type: string
+        ' events ':
+          type: array
+          items:
+            type: object
+            properties:
+              ' type ':
+                type: string
+              ' created ':
+                type: string
+              ' amount ':
+                type: object
+                properties:
+                  ' amount ':
+                    type: string
+                  ' currency ':
+                    type: string
+              ' status ':
+                type: string
+              ' merchantReference ':
+                type: string
+              ' orderId ':
+                type: integer
+        ' requestId ':
+          type: string
+        ' consumerReference ':
+          type: string
+        ' email ':
+          type: string
+    PostV2CheckoutsResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' expires ':
+          type: string
+        ' redirectCheckoutUrl ':
+          type: string
+    GetV2CheckoutsTokenResponse:
+      type: object
+      properties:
+        ' amount ':
+          type: object
+          properties:
+            ' amount ':
+              type: string
+            ' currency ':
+              type: string
+        ' consumer ':
+          type: object
+          properties:
+            ' email ':
+              type: string
+            ' givenNames ':
+              type: string
+            ' surname ':
+              type: string
+            ' phoneNumber ':
+              type: string
+        ' agreements ':
+          type: array
+          items:
+            type: object
+            properties:
+              ' type ':
+                type: string
+              ' merchantReference ':
+                type: string
+        ' billing ':
+          type: object
+          properties:
+            ' name ':
+              type: string
+            ' line1 ':
+              type: string
+            ' area1 ':
+              type: string
+            ' region ':
+              type: string
+            ' postcode ':
+              type: string
+            ' countryCode ':
+              type: string
+            ' line2 ':
+              type: string
+            ' phoneNumber ':
+              type: string
+        ' courier ':
+          type: object
+          properties:
+            ' shippedAt ':
+              type: string
+            ' name ':
+              type: string
+            ' tracking ':
+              type: string
+            ' priority ':
+              type: string
+        ' custom ':
+          type: object
+        ' discounts ':
+          type: array
+          items:
+            type: object
+            properties:
+              ' displayName ':
+                type: string
+              ' amount ':
+                type: object
+                properties:
+                  ' amount ':
+                    type: string
+                  ' currency ':
+                    type: string
+        ' expires ':
+          type: string
+        ' items ':
+          type: array
+          items:
+            type: object
+            properties:
+              ' name ':
+                type: string
+              ' quantity ':
+                type: integer
+              ' price ':
+                type: object
+                properties:
+                  ' amount ':
+                    type: string
+                  ' currency ':
+                    type: string
+              ' sku ':
+                type: string
+              ' pageUrl ':
+                type: string
+              ' imageUrl ':
+                type: string
+              ' categories ':
+                type: array
+                items:
+                  type: array
+                  items:
+                    type: string
+              ' estimatedShipmentDate ':
+                type: string
+              ' preorder ':
+                type: boolean
+        ' merchant ':
+          type: object
+          properties:
+            ' redirectConfirmUrl ':
+              type: string
+            ' redirectCancelUrl ':
+              type: string
+            ' popupOriginUrl ':
+              type: string
+            ' name ':
+              type: string
+        ' merchantReference ':
+          type: string
+        ' mode ':
+          type: string
+        ' redirectCheckoutUrl ':
+          type: string
+        ' shipping ':
+          type: object
+          properties:
+            ' name ':
+              type: string
+            ' line1 ':
+              type: string
+            ' area1 ':
+              type: string
+            ' region ':
+              type: string
+            ' postcode ':
+              type: string
+            ' countryCode ':
+              type: string
+            ' line2 ':
+              type: string
+            ' phoneNumber ':
+              type: string
+        ' shippingAmount ':
+          type: object
+          properties:
+            ' amount ':
+              type: string
+            ' currency ':
+              type: string
+        ' taxAmount ':
+          type: object
+          properties:
+            ' amount ':
+              type: string
+            ' currency ':
+              type: string
+        ' token ':
+          type: string
+        ' description ':
+          type: string
+    GetV2ConfigurationMappingsResponse:
+      type: object
+      properties:
+        ' name ':
+          type: string
+        ' externalBrandId ':
+          type: string
+    GetV2DisputesResponse:
+      type: object
+      properties:
+        ' data ':
+          type: array
+          items:
+            type: object
+            properties:
+              ' id ':
+                type: string
+              ' order ':
+                type: string
+              ' amount ':
+                type: string
+              ' currency ':
+                type: string
+              ' reason ':
+                type: string
+              ' status ':
+                type: string
+              ' open ':
+                type: boolean
+              ' responseDueBy ':
+                type: integer
+              ' createdAt ':
+                type: integer
+              ' openingNote ':
+                type: string
+              ' openingNoteAttachments ':
+                type: array
+                items:
+                  type: string
+              ' updatedAt ':
+                type: integer
+              ' closingReason ':
+                type: string
+              ' closingNote ':
+                type: string
+              ' merchantOrderId ':
+                type: string
+              ' transactionDate ':
+                type: integer
+              ' settlementAmount ':
+                type: string
+              ' partialRefundAmount ':
+                type: string
+              ' meta ':
+                type: object
+                properties:
+                  ' transactionAmount ':
+                    type: string
+                  ' orderType ':
+                    type: string
+                  ' network ':
+                    type: string
+        ' offset ':
+          type: integer
+        ' limit ':
+          type: integer
+        ' total ':
+          type: integer
+    GetV2DisputesDisputeIdResponse:
+      type: object
+      properties:
+        ' id ':
+          type: string
+        ' order ':
+          type: string
+        ' amount ':
+          type: string
+        ' currency ':
+          type: string
+        ' reason ':
+          type: string
+        ' status ':
+          type: string
+        ' open ':
+          type: boolean
+        ' responseDueBy ':
+          type: integer
+        ' createdAt ':
+          type: integer
+        ' openingNote ':
+          type: string
+        ' openingNoteAttachments ':
+          type: array
+          items:
+            type: string
+        ' updatedAt ':
+          type: integer
+        ' closingReason ':
+          type: string
+        ' closingNote ':
+          type: string
+        ' merchantOrderId ':
+          type: string
+        ' transactionDate ':
+          type: integer
+        ' settlementAmount ':
+          type: string
+        ' partialRefundAmount ':
+          type: string
+        ' meta ':
+          type: object
+          properties:
+            ' transactionAmount ':
+              type: string
+            ' orderType ':
+              type: string
+            ' network ':
+              type: string
+            ' networkReferenceId ':
+              type: string
+    PostV2DisputesDisputeIdResponse:
+      type: object
+      properties:
+        ' id ':
+          type: string
+        ' order ':
+          type: string
+        ' amount ':
+          type: string
+        ' currency ':
+          type: string
+        ' reason ':
+          type: string
+        ' status ':
+          type: string
+        ' open ':
+          type: boolean
+        ' responseDueBy ':
+          type: integer
+        ' createdAt ':
+          type: integer
+        ' openingNote ':
+          type: string
+        ' openingNoteAttachments ':
+          type: array
+          items:
+            type: string
+        ' updatedAt ':
+          type: integer
+        ' closingReason ':
+          type:
+          - string
+          - 'null'
+        ' merchantOrderId ':
+          type: string
+        ' transactionDate ':
+          type: integer
+        ' settlementAmount ':
+          type:
+          - string
+          - 'null'
+        ' meta ':
+          type: object
+          properties:
+            ' transactionAmount ':
+              type: string
+            ' orderType ':
+              type: string
+            ' network ':
+              type: string
+            ' networkReferenceId ':
+              type: string
+    GetV2DisputesDisputeIdAcceptResponse:
+      type: object
+      properties:
+        ' id ':
+          type: string
+        ' order ':
+          type: string
+        ' amount ':
+          type: string
+        ' currency ':
+          type: string
+        ' reason ':
+          type: string
+        ' status ':
+          type: string
+        ' open ':
+          type: boolean
+        ' responseDueBy ':
+          type: integer
+        ' createdAt ':
+          type: integer
+        ' openingNote ':
+          type: string
+        ' openingNoteAttachments ':
+          type: array
+          items:
+            type: string
+        ' updatedAt ':
+          type: integer
+        ' closingReason ':
+          type: string
+        ' closingNote ':
+          type: string
+        ' merchantOrderId ':
+          type: string
+        ' transactionDate ':
+          type: integer
+        ' settlementAmount ':
+          type: string
+        ' partialRefundAmount ':
+          type: string
+        ' meta ':
+          type: object
+          properties:
+            ' transactionAmount ':
+              type: string
+            ' orderType ':
+              type: string
+            ' network ':
+              type: string
+            ' networkReferenceId ':
+              type: string
+    PostV2DisputesFilesResponse:
+      type: object
+      properties:
+        ' id ':
+          type: string
+        ' createdAt ':
+          type: string
+        ' expiresAt ':
+          type: string
+    GetV2DisputesFilesIdResponse:
+      type: object
+      properties:
+        ' url ':
+          type: string
+        ' expiresAt ':
+          type: string
+    PostV2GrantsResponse:
+      type: object
+      properties:
+        ' grant ':
+          type: object
+          properties:
+            ' id ':
+              type: string
+            ' type ':
+              type: string
+            ' status ':
+              type: string
+            ' created ':
+              type: string
+            ' merchantReference ':
+              type: string
+            ' cancelled ':
+              type: string
+            ' expires ':
+              type: string
+            ' consumerReference ':
+              type: string
+            ' email ':
+              type: string
+            ' requestId ':
+              type: string
+    PostV2GrantsAliasResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' expiry ':
+          type: string
+    PostV2GrantsApprovalsResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' expires ':
+          type: string
+        ' redirectCheckoutUrl ':
+          type: string
+    GetV2GrantsGrantidResponse:
+      type: object
+      properties:
+        ' grant ':
+          type: object
+          properties:
+            ' id ':
+              type: string
+            ' type ':
+              type: string
+            ' status ':
+              type: string
+            ' created ':
+              type: string
+            ' merchantReference ':
+              type: string
+            ' cancelled ':
+              type: string
+            ' expires ':
+              type: string
+            ' consumerReference ':
+              type: string
+            ' email ':
+              type: string
+            ' requestId ':
+              type: string
+    PostV2GrantsGrantidRevokeResponse:
+      type: object
+      properties:
+        ' grant ':
+          type: object
+          properties:
+            ' id ':
+              type: string
+            ' type ':
+              type: string
+            ' status ':
+              type: string
+            ' created ':
+              type: string
+            ' merchantReference ':
+              type: string
+            ' cancelled ':
+              type: string
+            ' expires ':
+              type: string
+            ' consumerReference ':
+              type: string
+            ' email ':
+              type: string
+            ' requestId ':
+              type: string
+    PostV2GrantsStartResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' requestId ':
+          type: string
+        ' expiresAt ':
+          type: string
+        ' deliveryType ':
+          type: string
+    PostV2Oauth2TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: JWT access token
+        scope:
+          type: string
+          description: Granted scopes
+        token_type:
+          type: string
+          description: Token type (Bearer)
+        expires_in:
+          type: integer
+          description: Token validity duration in seconds
+    PostV2OrdersResponse:
+      type: object
+      properties:
+        ' token ':
+          type: string
+        ' expires ':
+          type: string
+    GetV2PaymentsResponse:
+      type: object
+      properties:
+        ' totalResults ':
+          type: integer
+        ' limit ':
+          type: integer
+        ' nextPageUrl ':
+          type: string
+        ' results ':
+          type: array
+          items: {}
+    PutV2PaymentsOrderidResponse:
+      type: object
+      properties:
+        ' id ':
+          type: string
+        ' token ':
+          type: string
+        ' status ':
+          type: string
+        ' created ':
+          type:
+          - string
+          - 'null'
+        ' originalAmount ':
+          type: object
+        ' openToCaptureAmount ':
+          type: object
+        ' paymentState ':
+          type: string
+        ' merchantReference ':
+          type:
+          - string
+          - 'null'
+        ' refunds ':
+          type: object
+        ' orderDetails ':
+          type: object
+        ' events ':
+          type: object
+    PostV2PaymentsOrderidRefundResponse:
+      type: object
+      properties:
+        ' amount ':
+          type: object
+          properties:
+            ' amount ':
+              type: string
+            ' currency ':
+              type: string
+        ' merchantReference ':
+          type: string
+        ' refundId ':
+          type: string
+        ' refundMerchantReference ':
+          type: string
+        ' refundedAt ':
+          type: string
+        ' requestId ':
+          type: string
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+security:
+- basic: []
+tags:
+- name: Billing Agreements
+- name: Checkouts
+- name: Configuration
+- name: Disputes
+- name: Grants
+- name: Oauth2
+- name: Orders
+- name: Payments
+- name: Ping
+- name: Recurring Payments

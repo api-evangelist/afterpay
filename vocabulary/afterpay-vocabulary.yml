@@ -1,0 +1,201 @@
+generated: '2026-10-21'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/afterpay-openapi-generated.yml
+vocabulary:
+  name: Afterpay Domain Vocabulary
+  description: 'Terms declared by Afterpay''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-21'
+  terms:
+  - term: PostV2BillingAgreementsResponse
+    definition: 'Object declared by the contract with fields:  token ,  type ,  status ,  created ,  merchantReference ,  cancelled ,  expires
+      ,  events ,  requestId ,  consumerReference ,  email .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2BillingAgreementsResponse
+  - term: PostV2BillingAgreementsAliasResponse
+    definition: 'Object declared by the contract with fields:  token ,  expiry .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2BillingAgreementsAliasResponse
+  - term: PutV2BillingAgreementsCancelResponse
+    definition: 'Object declared by the contract with fields:  token ,  type ,  status ,  created ,  merchantReference ,  cancelled ,  expires
+      ,  events ,  requestId ,  consumerReference ,  email .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PutV2BillingAgreementsCancelResponse
+  - term: PostV2BillingAgreementsRetrieveResponse
+    definition: 'Object declared by the contract with fields:  token ,  type ,  status ,  created ,  merchantReference ,  cancelled ,  expires
+      ,  events ,  requestId ,  consumerReference ,  email .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2BillingAgreementsRetrieveResponse
+  - term: DeleteV2BillingAgreementsTokenResponse
+    definition: 'Object declared by the contract with fields:  token ,  type ,  status ,  created ,  merchantReference ,  cancelled ,  expires
+      ,  events ,  requestId ,  consumerReference ,  email .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/DeleteV2BillingAgreementsTokenResponse
+  - term: GetV2BillingAgreementsTokenResponse
+    definition: 'Object declared by the contract with fields:  token ,  type ,  status ,  created ,  merchantReference ,  cancelled ,  expires
+      ,  events ,  requestId ,  consumerReference ,  email .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/GetV2BillingAgreementsTokenResponse
+  - term: PostV2CheckoutsResponse
+    definition: 'Object declared by the contract with fields:  token ,  expires ,  redirectCheckoutUrl .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2CheckoutsResponse
+  - term: GetV2CheckoutsTokenResponse
+    definition: 'Object declared by the contract with fields:  amount ,  consumer ,  agreements ,  billing ,  courier ,  custom ,  discounts ,  expires
+      ,  items ,  merchant ,  merchantReference ,  mode . (6 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/GetV2CheckoutsTokenResponse
+  - term: GetV2ConfigurationMappingsResponse
+    definition: 'Object declared by the contract with fields:  name ,  externalBrandId .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/GetV2ConfigurationMappingsResponse
+  - term: GetV2DisputesResponse
+    definition: 'Object declared by the contract with fields:  data ,  offset ,  limit ,  total .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/GetV2DisputesResponse
+  - term: GetV2DisputesDisputeIdResponse
+    definition: 'Object declared by the contract with fields:  id ,  order ,  amount ,  currency ,  reason ,  status ,  open ,  responseDueBy
+      ,  createdAt ,  openingNote ,  openingNoteAttachments ,  updatedAt . (7 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/GetV2DisputesDisputeIdResponse
+  - term: PostV2DisputesDisputeIdResponse
+    definition: 'Object declared by the contract with fields:  id ,  order ,  amount ,  currency ,  reason ,  status ,  open ,  responseDueBy
+      ,  createdAt ,  openingNote ,  openingNoteAttachments ,  updatedAt . (5 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2DisputesDisputeIdResponse
+  - term: GetV2DisputesDisputeIdAcceptResponse
+    definition: 'Object declared by the contract with fields:  id ,  order ,  amount ,  currency ,  reason ,  status ,  open ,  responseDueBy
+      ,  createdAt ,  openingNote ,  openingNoteAttachments ,  updatedAt . (7 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/GetV2DisputesDisputeIdAcceptResponse
+  - term: PostV2DisputesFilesResponse
+    definition: 'Object declared by the contract with fields:  id ,  createdAt ,  expiresAt .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2DisputesFilesResponse
+  - term: GetV2DisputesFilesIdResponse
+    definition: 'Object declared by the contract with fields:  url ,  expiresAt .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/GetV2DisputesFilesIdResponse
+  - term: PostV2GrantsResponse
+    definition: 'Object declared by the contract with fields:  grant .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2GrantsResponse
+  - term: PostV2GrantsAliasResponse
+    definition: 'Object declared by the contract with fields:  token ,  expiry .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2GrantsAliasResponse
+  - term: PostV2GrantsApprovalsResponse
+    definition: 'Object declared by the contract with fields:  token ,  expires ,  redirectCheckoutUrl .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2GrantsApprovalsResponse
+  - term: GetV2GrantsGrantidResponse
+    definition: 'Object declared by the contract with fields:  grant .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/GetV2GrantsGrantidResponse
+  - term: PostV2GrantsGrantidRevokeResponse
+    definition: 'Object declared by the contract with fields:  grant .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2GrantsGrantidRevokeResponse
+  - term: PostV2GrantsStartResponse
+    definition: 'Object declared by the contract with fields:  token ,  requestId ,  expiresAt ,  deliveryType .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2GrantsStartResponse
+  - term: PostV2Oauth2TokenResponse
+    definition: 'Object declared by the contract with fields: access_token, scope, token_type, expires_in.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2Oauth2TokenResponse
+  - term: PostV2OrdersResponse
+    definition: 'Object declared by the contract with fields:  token ,  expires .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2OrdersResponse
+  - term: GetV2PaymentsResponse
+    definition: 'Object declared by the contract with fields:  totalResults ,  limit ,  nextPageUrl ,  results .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/GetV2PaymentsResponse
+  - term: PutV2PaymentsOrderidResponse
+    definition: 'Object declared by the contract with fields:  id ,  token ,  status ,  created ,  originalAmount ,  openToCaptureAmount ,  paymentState
+      ,  merchantReference ,  refunds ,  orderDetails ,  events .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PutV2PaymentsOrderidResponse
+  - term: PostV2PaymentsOrderidRefundResponse
+    definition: 'Object declared by the contract with fields:  amount ,  merchantReference ,  refundId ,  refundMerchantReference ,  refundedAt
+      ,  requestId .'
+    tags:
+    - Object
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/PostV2PaymentsOrderidRefundResponse
+  - term: Ping
+    definition: 'Resource group in the contract; its operation GET /ping: GET /ping'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml
+  - term: Billing Agreements
+    definition: 'Resource group in the contract; its operation POST /v2/billing-agreements: POST /v2/billing-agreements'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml
+  - term: Checkouts
+    definition: 'Resource group in the contract; its operation POST /v2/checkouts: POST /v2/checkouts'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml
+  - term: Configuration
+    definition: 'Resource group in the contract; its operation GET /v2/configuration: Get Configuration.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml
+  - term: Disputes
+    definition: 'Resource group in the contract; its operation GET /v2/disputes: GET /v2/disputes'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml
+  - term: Grants
+    definition: 'Resource group in the contract; its operation POST /v2/grants: POST /v2/grants'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml
+  - term: Oauth2
+    definition: 'Resource group in the contract; its operation GET /v2/oauth2/token: GET /v2/oauth2/token'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml
+  - term: Orders
+    definition: 'Resource group in the contract; its operation POST /v2/orders: POST /v2/orders'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml
+  - term: Payments
+    definition: 'Resource group in the contract; its operation GET /v2/payments: GET /v2/payments'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml
+  - term: Recurring Payments
+    definition: 'Resource group in the contract; its operation POST /v2/recurring-payments/auth: POST /v2/recurring-payments/auth'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/afterpay-openapi-generated.yml

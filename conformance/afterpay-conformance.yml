@@ -1,0 +1,31 @@
+name: Afterpay conformance
+provider: afterpay
+generated: '2026-10-21'
+method: searched
+source: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/authentication.md
+standards:
+- id: oauth2
+  conforms: true
+  evidence: The Client Credentials Authentication method ... is defined in RFC 6749 (token URL https://merchant-auth.afterpay.com/v2/oauth2/token)
+    — https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/authentication
+- id: rfc7617
+  conforms: true
+  evidence: Basic HTTP Authentication ... as specified by RFC 7617 — https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/authentication
+- id: tls1.2
+  conforms: true
+  evidence: All communication must use TLS 1.2 or higher. — https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction
+- id: iso8601
+  conforms: true
+  evidence: All dates are represented in ISO 8601 format, and are stored and returned in UTC. — https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction
+- id: idempotency
+  conforms: partial
+  evidence: requestId body field on auth, capture, void and refund; see conventions/afterpay-conventions.yml
+- id: pagination
+  conforms: true
+  evidence: 'List Payments: includeNextLink / nextPageUrl — https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction'
+- id: rfc9457
+  conforms: false
+  evidence: Errors use a custom JSON envelope (errorCode, errorId, message, httpStatusCode) — https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/errors
+- id: openapi-3.1
+  conforms: true
+  evidence: the document declares 3.1.0

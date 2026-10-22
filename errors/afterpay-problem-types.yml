@@ -1,0 +1,79 @@
+name: Afterpay errors
+provider: afterpay
+generated: '2026-10-21'
+method: searched
+source: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/errors.md
+format: application/json (custom envelope, not RFC 9457)
+envelope:
+  errorCode: The type of error returned (e.g. invalid_object or unsupported_currency).
+  errorId: A unique error ID for tracking and debugging.
+  message: A human-readable message which provides more details about the error. In most cases, these messages can be displayed to the customer.
+  httpStatusCode: The HTTP status code
+problems:
+- status: 400
+  title: Bad Request
+  type: invalid_json
+  description: The request body contains invalid or improperly formatted JSON.
+  remediation: Send well-formed JSON.
+- status: 401
+  title: Unauthorized
+  type: unauthorized
+  description: Invalid merchant API credentials were passed in the Authorization header.
+  remediation: Check Merchant ID / Secret Key for the region.
+- status: 402
+  title: Payment Required
+  type: invalid_token
+  description: The checkout token is invalid, expired, or does not exist.
+  remediation: Create a new checkout.
+- status: 405
+  title: Method Not Allowed
+  type: method_not_allowed
+  description: The request used an unsupported HTTP method.
+  remediation: Use OPTIONS to check allowed methods.
+- status: 406
+  title: Not Acceptable
+  type: error
+  description: The Accept header was not set to application/json or */*.
+  remediation: 'Send Accept: application/json.'
+- status: 409
+  title: Conflict
+  type: null
+  description: For idempotent requests, the original request is still being processed.
+  remediation: Retry the request with the same requestId until a different response is returned.
+- status: 410
+  title: Gone
+  type: payment_expired
+  description: The auth for this order has expired; no further payment can be captured.
+  remediation: Create a new checkout.
+- status: 412
+  title: Precondition Failed
+  type: invalid_state
+  description: The order was declined by Afterpay; no payment can be captured for this order.
+  remediation: null
+- status: 415
+  title: Unsupported Media Type
+  type: error
+  description: The request lacked a Content-Type header or used a value other than application/json.
+  remediation: 'Send Content-Type: application/json.'
+- status: 422
+  title: Unprocessable Entity
+  type: invalid_object | invalid_amount | unsupported_currency | unsupported_payment_type | refund_timelimit_exceeded
+  description: Invalid Money objects and field validation; refund_timelimit_exceeded when the refund exceeds the time limit of 120 days.
+  remediation: Correct the request fields.
+- status: 500
+  title: Internal Server Error
+  type: error
+  description: Often caused by a missing or empty request body in PUT or POST requests.
+  remediation: null
+partner_api:
+  source: https://developers.afterpay.com/afterpay-partner-api/guides/technical-guides/welcome/errors.md
+  statuses:
+  - 400
+  - 401
+  - 402
+  - 404
+  - 409
+  - 412
+  - 422
+  - 500-599
+  note: '500-599: Please check our status page and/or escalate to our team.'

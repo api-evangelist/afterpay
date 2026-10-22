@@ -1,0 +1,71 @@
+generated: '2026-10-21'
+method: searched
+source:
+- https://www.afterpay.com/en-US/privacy-policy
+- https://www.afterpay.com/en-US/terms-of-service
+- https://www.afterpay.com/en-US/security
+signals:
+  data_subject_request:
+    url: https://www.afterpay.com/en-US/privacy-policy
+    section: Additional Information for Residents of Certain U.S. States
+    channel: privacy@afterpay.com
+    note: US state-law rights to correct, delete, receive a portable copy, and opt out of sale/targeted advertising, requested through a web form or by email, with identity verification first.
+    evidence:
+    - source: https://www.afterpay.com/en-US/privacy-policy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: 'To make a request under #1-4, above, submit a request here, or email to privacy@afterpay.com. To help protect your privacy and maintain security, we take steps to verify your identity before granting you access to your personal information or complying with your request, where permitted by law.'
+    - source: https://www.afterpay.com/en-US/privacy-policy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: To receive the specific pieces of your personal information, including a copy of your personal information in a portable format.
+  global_privacy_control:
+    url: https://www.afterpay.com/en-US/privacy-policy
+    section: Additional Information for Residents of Certain U.S. States
+    note: Afterpay says it honours GPC opt-out signals, but only for each browser or device separately.
+    evidence:
+    - source: https://www.afterpay.com/en-US/privacy-policy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: We also process opt-out preference signals, such as the Global Privacy Control. These signals set your opt-out preferences only for the particular browser or device you are using and any consumer profile that we associate with that browser or device.
+  data_retention:
+    url: https://www.afterpay.com/en-US/privacy-policy
+    section: How Long We Keep Your Information
+    note: Retention is based on purpose and continues after account closure. No fixed retention periods are stated.
+    evidence:
+    - source: https://www.afterpay.com/en-US/privacy-policy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: We keep your information as long as is necessary for the purposes identified in this Privacy Notice, including to provide you the Services, to comply with applicable law and legal obligations, and to defend our legal rights, property and users.
+  data_residency:
+    url: https://www.afterpay.com/en-US/privacy-policy
+    section: Storage and Processing
+    note: There is no residency commitment. The policy lists many countries where data may be stored, ending with "and other countries".
+    evidence:
+    - source: https://www.afterpay.com/en-US/privacy-policy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: We may, and we may use third-party service providers to, process and store your information in the United States, Australia, New Zealand, Canada, Japan, the United Kingdom, the European Union, and other countries.
+  ai_transparency:
+    url: https://www.afterpay.com/en-US/terms-of-service
+    section: 12. Generative AI Terms of Use
+    note: The consumer terms include Generative AI terms of use that make the user responsible for AI inputs and outputs. The privacy policy says service providers supply AI technologies. No model or system disclosure was found.
+    evidence:
+    - source: https://www.afterpay.com/en-US/terms-of-service
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: By using any of the Generative Artificial Intelligence ("AI") or AI-powered products, features, and tools ("AI Products") offered via Afterpay, you agree to be bound by these Generative AI Terms, and any other applicable terms, policies and guidelines.
+  age_assurance:
+    url: https://www.afterpay.com/en-US/privacy-policy
+    section: Children's Personal Information
+    note: An 18+ age requirement backed by self-declaration (the user represents and warrants their age). No age-verification mechanism is described.
+    evidence:
+    - source: https://www.afterpay.com/en-US/privacy-policy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: Our Services are not directed at children under the age of 18. We do not knowingly sell or share for targeted advertising the personal information of children under the age of 18. If we learn that any information we collect has been provided by a child under the age of 18, we will promptly delete that information.
+    - source: https://www.afterpay.com/en-US/terms-of-service
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: By using the Services, you represent and warrant that, you are a legal resident of one of the fifty (50) United States or the District of Columbia and at least 18 years old or are of legal age in your state of residence.
+note: Read from the US consumer privacy policy (its accordion content was rendered with a headless browser), the US terms of service, and the security page. No subprocessor list, incident-notification commitment, SBOM, accessibility conformance report, transparency report or exit-assistance terms were found on these pages. The security page covers PCI DSS cardholder-data handling only. A newer policy, privacy-policy-jan2026, is linked from the page but was not rendered.

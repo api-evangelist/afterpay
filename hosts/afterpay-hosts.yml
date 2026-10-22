@@ -1,0 +1,172 @@
+generated: '2026-10-21'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 12
+  own: 10
+  other_domain: 0
+  platform: 2
+  roles:
+  - api
+  - identity
+  - marketing
+  - other
+  - portal
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: agencyapi.afterpay.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: afterpay.com
+  role: other
+  relation: own
+- host: api.afterpay.com
+  found_by:
+  - probed
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: afterpay.com
+  role: api
+  relation: own
+- host: developers.afterpay.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - LlmsText
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  - documentation
+  - hosting
+  vendor: fern
+  registrable_domain: afterpay.com
+  role: portal
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: global-api-sandbox.afterpay.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: afterpay.com
+  role: other
+  relation: own
+- host: global-api.afterpay.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: afterpay.com
+  role: other
+  relation: own
+- host: help.afterpay.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: afterpay.com
+  role: support
+  relation: own
+- host: newsroom.afterpay.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Blog
+  serves: []
+  registrable_domain: afterpay.com
+  role: marketing
+  relation: own
+- host: portal.afterpay.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types:
+  - Login
+  serves:
+  - docs
+  registrable_domain: afterpay.com
+  role: identity
+  relation: own
+- host: status.afterpay.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - StatusPage
+  serves:
+  - status-page
+  vendor: incident-io
+  registrable_domain: afterpay.com
+  role: status
+  relation: own
+- host: www.afterpay.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  - Support
+  - TermsOfService
+  - PrivacyPolicy
+  - Security
+  serves:
+  - cdn
+  vendor: cloudflare
+  registrable_domain: afterpay.com
+  role: website
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform

@@ -1,0 +1,58 @@
+{
+  "@context": {
+    "@vocab": "https://afterpay.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "afterpay": "https://afterpay.com/schema#",
+    "PostV2BillingAgreementsResponse": "afterpay:PostV2BillingAgreementsResponse",
+    "PostV2BillingAgreementsAliasResponse": "afterpay:PostV2BillingAgreementsAliasResponse",
+    "PutV2BillingAgreementsCancelResponse": "afterpay:PutV2BillingAgreementsCancelResponse",
+    "PostV2BillingAgreementsRetrieveResponse": "afterpay:PostV2BillingAgreementsRetrieveResponse",
+    "DeleteV2BillingAgreementsTokenResponse": "afterpay:DeleteV2BillingAgreementsTokenResponse",
+    "GetV2BillingAgreementsTokenResponse": "afterpay:GetV2BillingAgreementsTokenResponse",
+    "PostV2CheckoutsResponse": "afterpay:PostV2CheckoutsResponse",
+    "GetV2CheckoutsTokenResponse": "afterpay:GetV2CheckoutsTokenResponse",
+    "GetV2ConfigurationMappingsResponse": "afterpay:GetV2ConfigurationMappingsResponse",
+    "GetV2DisputesResponse": "afterpay:GetV2DisputesResponse",
+    "GetV2DisputesDisputeIdResponse": "afterpay:GetV2DisputesDisputeIdResponse",
+    "PostV2DisputesDisputeIdResponse": "afterpay:PostV2DisputesDisputeIdResponse",
+    "GetV2DisputesDisputeIdAcceptResponse": "afterpay:GetV2DisputesDisputeIdAcceptResponse",
+    "PostV2DisputesFilesResponse": "afterpay:PostV2DisputesFilesResponse",
+    "GetV2DisputesFilesIdResponse": "afterpay:GetV2DisputesFilesIdResponse",
+    "PostV2GrantsResponse": "afterpay:PostV2GrantsResponse",
+    "PostV2GrantsAliasResponse": "afterpay:PostV2GrantsAliasResponse",
+    "PostV2GrantsApprovalsResponse": "afterpay:PostV2GrantsApprovalsResponse",
+    "GetV2GrantsGrantidResponse": "afterpay:GetV2GrantsGrantidResponse",
+    "PostV2GrantsGrantidRevokeResponse": "afterpay:PostV2GrantsGrantidRevokeResponse",
+    "PostV2GrantsStartResponse": "afterpay:PostV2GrantsStartResponse",
+    "PostV2Oauth2TokenResponse": "afterpay:PostV2Oauth2TokenResponse",
+    "access_token": {
+      "@id": "afterpay:access_token",
+      "@type": "xsd:string"
+    },
+    "scope": {
+      "@id": "afterpay:scope",
+      "@type": "xsd:string"
+    },
+    "token_type": {
+      "@id": "afterpay:token_type",
+      "@type": "xsd:string"
+    },
+    "expires_in": {
+      "@id": "afterpay:expires_in",
+      "@type": "xsd:integer"
+    },
+    "PostV2OrdersResponse": "afterpay:PostV2OrdersResponse",
+    "GetV2PaymentsResponse": "afterpay:GetV2PaymentsResponse",
+    "PutV2PaymentsOrderidResponse": "afterpay:PutV2PaymentsOrderidResponse",
+    "PostV2PaymentsOrderidRefundResponse": "afterpay:PostV2PaymentsOrderidRefundResponse"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Afterpay API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Afterpay's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-21) from openapi/_ae-authored/afterpay-openapi-generated.yml.",
+  "dcterms:created": "2026-10-21",
+  "dcterms:source": [
+    "openapi/_ae-authored/afterpay-openapi-generated.yml"
+  ]
+}

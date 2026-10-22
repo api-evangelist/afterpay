@@ -1,0 +1,33 @@
+name: Afterpay components
+provider: afterpay
+generated: '2026-10-21'
+method: searched
+source: https://developers.afterpay.com/afterpay-online-developer/main/guides/afterpay-messaging/implementation.md
+families:
+- family: On-Site Messaging
+  element: <square-placement>
+  attributes:
+  - data-mpid
+  - data-placement-id
+  - data-page-type
+  - data-amount
+  - data-currency
+  - data-consumer-locale
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/guides/afterpay-messaging/implementation
+- family: Checkout Widget
+  element: AfterPay.Widgets.PaymentSchedule
+  loader: https://portal.afterpay.com/afterpay.js
+  sandbox_loader: https://portal.sandbox.afterpay.com/afterpay.js
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/guides/api-development/additional-features/checkout-widget
+- family: Afterpay Info Modal
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/guides/afterpay-messaging/launch-afterpay-info-modal-anywhere
+- family: Afterpay Button
+  docs: https://developers.afterpay.com/afterpay-button-documentation/home
+  native: com.afterpay:afterpay-android-button
+- family: Legacy messaging (Dynamic Widget, JavaScript library)
+  status: legacy — replace with On-Site Messaging
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/guides/afterpay-messaging/legacy-messaging-products
+- family: Mobile SDK UI (iOS / Android)
+  repos:
+  - https://github.com/afterpay/sdk-ios
+  - https://github.com/afterpay/sdk-android

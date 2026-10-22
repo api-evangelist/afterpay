@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/afterpay/main/json-schema/afterpay-get-v2-checkouts-token-response-schema.json",
+  "title": "GetV2CheckoutsTokenResponse",
+  "x-generated": "2026-10-21",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/afterpay-openapi-generated.yml#/components/schemas/GetV2CheckoutsTokenResponse",
+  "type": "object",
+  "properties": {
+    " amount ": {
+      "type": "object",
+      "properties": {
+        " amount ": {
+          "type": "string"
+        },
+        " currency ": {
+          "type": "string"
+        }
+      }
+    },
+    " consumer ": {
+      "type": "object",
+      "properties": {
+        " email ": {
+          "type": "string"
+        },
+        " givenNames ": {
+          "type": "string"
+        },
+        " surname ": {
+          "type": "string"
+        },
+        " phoneNumber ": {
+          "type": "string"
+        }
+      }
+    },
+    " agreements ": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          " type ": {
+            "type": "string"
+          },
+          " merchantReference ": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    " billing ": {
+      "type": "object",
+      "properties": {
+        " name ": {
+          "type": "string"
+        },
+        " line1 ": {
+          "type": "string"
+        },
+        " area1 ": {
+          "type": "string"
+        },
+        " region ": {
+          "type": "string"
+        },
+        " postcode ": {
+          "type": "string"
+        },
+        " countryCode ": {
+          "type": "string"
+        },
+        " line2 ": {
+          "type": "string"
+        },
+        " phoneNumber ": {
+          "type": "string"
+        }
+      }
+    },
+    " courier ": {
+      "type": "object",
+      "properties": {
+        " shippedAt ": {
+          "type": "string"
+        },
+        " name ": {
+          "type": "string"
+        },
+        " tracking ": {
+          "type": "string"
+        },
+        " priority ": {
+          "type": "string"
+        }
+      }
+    },
+    " custom ": {
+      "type": "object"
+    },
+    " discounts ": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          " displayName ": {
+            "type": "string"
+          },
+          " amount ": {
+            "type": "object",
+            "properties": {
+              " amount ": {
+                "type": "string"
+              },
+              " currency ": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    " expires ": {
+      "type": "string"
+    },
+    " items ": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          " name ": {
+            "type": "string"
+          },
+          " quantity ": {
+            "type": "integer"
+          },
+          " price ": {
+            "type": "object",
+            "properties": {
+              " amount ": {
+                "type": "string"
+              },
+              " currency ": {
+                "type": "string"
+              }
+            }
+          },
+          " sku ": {
+            "type": "string"
+          },
+          " pageUrl ": {
+            "type": "string"
+          },
+          " imageUrl ": {
+            "type": "string"
+          },
+          " categories ": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          " estimatedShipmentDate ": {
+            "type": "string"
+          },
+          " preorder ": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    " merchant ": {
+      "type": "object",
+      "properties": {
+        " redirectConfirmUrl ": {
+          "type": "string"
+        },
+        " redirectCancelUrl ": {
+          "type": "string"
+        },
+        " popupOriginUrl ": {
+          "type": "string"
+        },
+        " name ": {
+          "type": "string"
+        }
+      }
+    },
+    " merchantReference ": {
+      "type": "string"
+    },
+    " mode ": {
+      "type": "string"
+    },
+    " redirectCheckoutUrl ": {
+      "type": "string"
+    },
+    " shipping ": {
+      "type": "object",
+      "properties": {
+        " name ": {
+          "type": "string"
+        },
+        " line1 ": {
+          "type": "string"
+        },
+        " area1 ": {
+          "type": "string"
+        },
+        " region ": {
+          "type": "string"
+        },
+        " postcode ": {
+          "type": "string"
+        },
+        " countryCode ": {
+          "type": "string"
+        },
+        " line2 ": {
+          "type": "string"
+        },
+        " phoneNumber ": {
+          "type": "string"
+        }
+      }
+    },
+    " shippingAmount ": {
+      "type": "object",
+      "properties": {
+        " amount ": {
+          "type": "string"
+        },
+        " currency ": {
+          "type": "string"
+        }
+      }
+    },
+    " taxAmount ": {
+      "type": "object",
+      "properties": {
+        " amount ": {
+          "type": "string"
+        },
+        " currency ": {
+          "type": "string"
+        }
+      }
+    },
+    " token ": {
+      "type": "string"
+    },
+    " description ": {
+      "type": "string"
+    }
+  }
+}

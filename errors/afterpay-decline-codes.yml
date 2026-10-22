@@ -1,0 +1,25 @@
+name: Afterpay decline codes
+provider: afterpay
+generated: '2026-10-21'
+method: searched
+source: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/payments/auth.md
+envelope_field: status / paymentState on the Payment object; errorCode on error responses
+note: Afterpay publishes no issuer-style decline-reason catalog; declines surface as payment states and errorCodes. The documented guidance is to advise the consumer to contact Afterpay Customer Service.
+decline_codes:
+- code: DECLINED
+  meaning: If payment is declined by Afterpay, for example, if invalid card details were entered, returns a Payment object with a status of DECLINED.
+  action: Please advise the consumer to contact the Afterpay Customer Service team for more information.
+- code: AUTH_DECLINED
+  meaning: paymentState of a declined authorization
+  action: Present suggested corrections or alternative payment methods at checkout.
+- code: CAPTURE_DECLINED
+  meaning: paymentState when a capture is declined
+  action: null
+- code: invalid_state
+  meaning: The order was declined by Afterpay; no payment can be captured for this order.
+  action: null
+- code: invalid_token
+  meaning: The checkout token is invalid, expired, or does not exist.
+  action: Create a new checkout.
+masked_to_buyers: null
+sandbox_trigger: CVV 051 returns Declined (see sandbox/afterpay-sandbox.yml)

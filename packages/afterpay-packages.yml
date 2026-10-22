@@ -1,0 +1,73 @@
+name: Afterpay packages
+provider: afterpay
+generated: '2026-10-21'
+method: searched
+source: https://api.github.com/orgs/afterpay/repos
+packages:
+- name: com.afterpay:afterpay-android
+  registry: maven
+  url: https://central.sonatype.com/artifact/com.afterpay/afterpay-android
+  language: Kotlin
+  official: true
+  version: 4.8.3
+  published: '2025-06-12'
+  repository: https://github.com/afterpay/sdk-android
+  note: version/timestamp from search.maven.org solrsearch latestVersion
+- name: com.afterpay:afterpay-android-button
+  registry: maven
+  url: https://central.sonatype.com/artifact/com.afterpay/afterpay-android-button
+  language: Kotlin
+  official: true
+  version: 4.5.1
+  published: '2024-06-04'
+  repository: https://github.com/afterpay/sdk-android-button
+- name: Afterpay
+  registry: cocoapods
+  url: https://cocoapods.org/pods/Afterpay
+  language: Swift
+  official: true
+  version: 5.8.0
+  published: '2025-03-01'
+  repository: https://github.com/afterpay/sdk-ios
+  note: trunk.cocoapods.org latest 5.8.0; GitHub release 5.9.0 published 2025-07-24 (also distributed via Swift Package Manager and Carthage)
+- name: afterpay-global/afterpay-sdk-php
+  registry: packagist
+  url: https://packagist.org/packages/afterpay-global/afterpay-sdk-php
+  language: PHP
+  official: false
+  version: 1.8.0
+  published: '2024-01-19'
+  repository: https://github.com/afterpay/sdk-php
+  ownership_audit: 'registry metadata names neither the provider''s domain nor its GitHub org: official downgraded (harvest-packages.py --audit)'
+- name: afterpay-global/module-afterpay
+  registry: packagist
+  url: https://packagist.org/packages/afterpay-global/module-afterpay
+  language: PHP
+  official: false
+  version: 5.4.6
+  published: '2026-07-21'
+  repository: https://github.com/afterpay/afterpay-magento-2
+  note: Adobe Commerce (Magento 2) payment module
+  ownership_audit: 'registry metadata names neither the provider''s domain nor its GitHub org: official downgraded (harvest-packages.py --audit)'
+- name: afterpay.js
+  registry: cdn
+  url: https://portal.afterpay.com/afterpay.js
+  language: JavaScript
+  official: true
+  version: null
+  published: null
+  note: 'Script-tag loader for the Checkout Widget (sandbox: https://portal.sandbox.afterpay.com/afterpay.js); URL is unpinned and floats to latest'
+not_official:
+- name: afterpay
+  registry: pypi
+  version: 0.4.0
+  note: third-party, author nyneava (github.com/nyneava/afterpay-python)
+- name: afterpay
+  registry: rubygems
+  version: 0.6.0
+  published: '2024-07-04'
+  note: Solidus community gem (homepage solidus.io), not published by Afterpay
+- name: afterpay
+  registry: npm
+  version: 0.0.1-security
+  note: npm security-holder placeholder

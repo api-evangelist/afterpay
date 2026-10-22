@@ -1,13 +1,81 @@
-generated: '2026-09-25'
+generated: '2026-10-21'
 method: probed
-source: 'reconcile-ptr-only.py: an MCP server the provider serves through a vendor implementation'
+source: pre-flight dossier (docs platform, portal detections) + CNAME chains and response headers of the hosts apis.yml names
 registry: all/0-working/vendors.yml
+areas_vocabulary:
+- documentation
+- developer-portal
+- api-gateway
+- cdn
+- hosting
+- sdk-generation
+- api-collections
+- status-page
+- support
+- community
+- identity
+- mcp-hosting
 vendors:
-- vendor: fern
-  area: mcp-hosting
-  host: developers.afterpay.com
-  evidence: mcp:https://developers.afterpay.com/_mcp/server
-  signal: mcp-handshake
+- vendor: cloudflare
+  name: Cloudflare
+  area: cdn
+  host: www.afterpay.com
+  evidence: header:cf-ray
+  signal: header
   confidence: high
   kin_score:
-  - mcp_server
+  - https_enforced
+  - hsts
+- vendor: fern
+  name: Fern
+  area: documentation
+  host: developers.afterpay.com
+  evidence: markup:buildwithfern
+  signal: docs-platform
+  confidence: medium
+  kin_score:
+  - openapi_published
+  - sdk_count_1
+  - sdk_count_3
+- vendor: vercel
+  name: Vercel
+  area: hosting
+  host: developers.afterpay.com
+  evidence: header:x-vercel-id
+  signal: header
+  confidence: high
+  kin_score: []
+- vendor: incident-io
+  name: incident.io
+  area: status-page
+  host: status.afterpay.com
+  evidence: cname:incident.io
+  signal: cname
+  confidence: high
+  kin_score:
+  - status_page
+reliance:
+  areas_vendor_served:
+  - cdn
+  - documentation
+  - hosting
+  - status-page
+  vendor_count: 4
+  areas_observed: 12
+  share_of_observable_areas: 0.333
+  note: areas where a third party was DETECTED serving this provider; an area absent here was either self-run or not observed, and this script
+    cannot tell those apart
+checked:
+- 'docs-platform: fern'
+- www.afterpay.com (Website)
+- developers.afterpay.com (DeveloperPortal)
+- developers.afterpay.com (Documentation)
+- developers.afterpay.com (APIReference)
+- developers.afterpay.com (GettingStarted)
+- www.afterpay.com (Support)
+- status.afterpay.com (StatusPage)
+- portal.afterpay.com (Login)
+- global-api.afterpay.com (baseURL)
+- agencyapi.afterpay.com (baseURL)
+- global-api-sandbox.afterpay.com (baseURL)
+- developers.afterpay.com (mcp)

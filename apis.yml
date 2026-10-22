@@ -1,10 +1,16 @@
 aid: afterpay
+
 url: https://raw.githubusercontent.com/api-evangelist/afterpay/refs/heads/main/apis.yml
+
 name: Afterpay
+
 kind: company
-description: Afterpay (acquired by Block / Square) is a buy-now-pay-later platform
-  offering Pay-in-4 installments at thousands of merchants. APIs for merchants to
-  integrate via Square or direct.
+
+description: Afterpay is a buy-now-pay-later (BNPL) service, owned by Block, Inc., that lets shoppers split purchases into four interest-free
+  installments at online and in-store retailers. Its developer portal (developers.afterpay.com) documents the Afterpay Online API for merchants
+  and platforms, covering checkouts, payment auth/capture/void/refund, merchant configuration, in-store and cross-border trade, plus an llms.txt
+  index and a documented MCP server for AI clients.
+
 deliveryModel:
   model: saas
   open_source: false
@@ -16,6 +22,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -28,7 +35,9 @@ accessModel:
   - plans
   generated: '2026-07-22'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/afterpay.png
+
 tags:
 - Fintech
 - Buy Now Pay Later
@@ -37,6 +46,7 @@ tags:
 - Block
 - Australia
 - Consumer Finance
+
 tags_raw:
 - Fintech
 - BNPL
@@ -45,42 +55,75 @@ tags_raw:
 - Block
 - Australia
 - Consumer Finance
+
 created: '2026-05-08'
-modified: '2026-05-08'
+
+modified: '2026-10-21'
+
 specificationVersion: '0.23'
-apis:
-- name: Afterpay Checkout API
-  description: Create and confirm Afterpay checkouts for merchant integrations.
-  humanURL: https://developers.afterpay.com/afterpay-online/reference
-  baseURL: https://api.afterpay.com
-  tags:
-  - Checkout
-  - Buy Now Pay Later
-  tags_raw:
-  - Checkout
-  - BNPL
-  properties:
-  - type: Documentation
-    url: https://developers.afterpay.com/afterpay-online/reference
-- name: Afterpay Payments API
-  description: Auth, capture, void and refund Afterpay payments.
-  humanURL: https://developers.afterpay.com/afterpay-online/reference
-  baseURL: https://api.afterpay.com
-  tags:
-  - Payments
-  properties:
-  - type: Documentation
-    url: https://developers.afterpay.com/afterpay-online/reference
-- name: Afterpay Configuration API
-  description: Retrieve merchant-level configuration and supported regions.
-  humanURL: https://developers.afterpay.com/afterpay-online/reference
-  baseURL: https://api.afterpay.com
-  tags:
-  - Configuration
-  properties:
-  - type: Documentation
-    url: https://developers.afterpay.com/afterpay-online/reference
+
+x-coverage:
+  state: covered
+  reason: enriched
+  detail: Identity pass 2026-10-21; Website confirmed, docs pointers taken from site links verified live; dead /afterpay-online/reference humanURL
+    replaced.
+  evidence:
+  - url: https://www.afterpay.com/
+    status: 200
+  - url: https://developers.afterpay.com/afterpay-online-developer/home
+    status: 200
+  - url: https://developers.afterpay.com/afterpay-online/reference
+    status: 404
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
 common:
+- type: Spectral
+  url: rules/afterpay-rules.yml
+- type: JSONLD
+  url: json-ld/afterpay-context.jsonld
+- type: Vocabulary
+  url: vocabulary/afterpay-vocabulary.yml
+- type: DataModel
+  url: data-model/afterpay-data-model.yml
+- type: Components
+  url: components/afterpay-components.yml
+- type: Idempotency
+  url: conventions/afterpay-conventions.yml
+- type: Conventions
+  url: conventions/afterpay-conventions.yml
+- type: Sandbox
+  url: sandbox/afterpay-sandbox.yml
+- type: Authentication
+  url: authentication/afterpay-authentication.yml
+- type: OAuthScopes
+  url: scopes/afterpay-scopes.yml
+- type: Lifecycle
+  url: lifecycle/afterpay-lifecycle.yml
+- type: DeclineCodes
+  url: errors/afterpay-decline-codes.yml
+- type: ErrorCatalog
+  url: errors/afterpay-problem-types.yml
+- type: Conformance
+  url: conformance/afterpay-conformance.yml
+- type: LLMsTxt
+  url: llms/afterpay-llms.txt
+- type: MCPServer
+  url: mcp/afterpay-mcp.yml
+- type: WellKnown
+  url: well-known/afterpay-well-known.yml
+- type: Hosts
+  url: hosts/afterpay-hosts.yml
+- type: IntegrationEdges
+  url: integrations/afterpay-integration-edges.yml
+- type: Vendors
+  url: vendors/afterpay-vendors.yml
+- type: SDKs
+  url: packages/afterpay-packages.yml
+- type: Packages
+  url: packages/afterpay-packages.yml
 - type: VulnerabilityDisclosure
   url: security/afterpay-vulnerability-disclosure.yml
 - type: DomainSecurity
@@ -93,12 +136,106 @@ common:
   url: https://www.afterpay.com/
 - type: Plans
   url: plans/afterpay-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/afterpay-rate-limits.yml
 - type: FinOps
   url: finops/afterpay-finops.yml
 - type: LlmsText
   url: https://developers.afterpay.com/llms.txt
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+- type: DeveloperPortal
+  url: https://developers.afterpay.com/afterpay-online-developer/home
+- type: Documentation
+  url: https://developers.afterpay.com/afterpay-online-developer/guides/platforms/platforms-quickstart
+- type: APIReference
+  url: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction
+- type: GettingStarted
+  url: https://developers.afterpay.com/afterpay-online-developer/guides/welcome/getting-started/introduction
+- type: Support
+  url: https://www.afterpay.com/en-US/help
+- type: Blog
+  url: https://newsroom.afterpay.com/
+- type: StatusPage
+  url: https://status.afterpay.com/
+- type: Login
+  url: https://portal.afterpay.com/en-US
+- type: TermsOfService
+  url: https://www.afterpay.com/en-US/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.afterpay.com/en-US/privacy-policy
+- type: Security
+  url: https://www.afterpay.com/en-US/security
+
+apis:
+- name: Afterpay Checkout API
+  description: Create and confirm Afterpay checkouts for merchant integrations.
+  humanURL: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction
+  baseURL: https://global-api.afterpay.com
+  tags:
+  - Checkout
+  - Buy Now Pay Later
+  tags_raw:
+  - Checkout
+  - BNPL
+  properties:
+  - type: Documentation
+    url: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction
+  aid: afterpay:afterpay-checkout-api
+- name: Afterpay Payments API
+  description: Auth, capture, void and refund Afterpay payments.
+  humanURL: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction
+  baseURL: https://global-api.afterpay.com
+  tags:
+  - Payments
+  properties:
+  - type: Documentation
+    url: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction
+  aid: afterpay:afterpay-payments-api
+- name: Afterpay Configuration API
+  description: Retrieve merchant-level configuration and supported regions.
+  humanURL: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction
+  baseURL: https://global-api.afterpay.com
+  tags:
+  - Configuration
+  properties:
+  - type: Documentation
+    url: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction
+  aid: afterpay:afterpay-configuration-api
+- name: Afterpay Partner API
+  description: Partner (agency) API for onboarding merchants to Afterpay, managing their payment-method and cross-border-trade capabilities, reviewing
+    contracts and custom rates, and retrieving settlement batches; requests are signed.
+  humanURL: https://developers.afterpay.com/afterpay-partner-api/guides/technical-guides/welcome/introduction
+  baseURL: https://agencyapi.afterpay.com
+  tags:
+  - Partners
+  - Onboarding
+  properties:
+  - type: Documentation
+    url: https://developers.afterpay.com/afterpay-partner-api/guides/technical-guides/welcome/introduction
+  aid: afterpay:afterpay-partner-api
+- aid: afterpay:afterpay-api
+  name: Afterpay API
+  description: 'Afterpay API as documented publicly: 38 operations. Contract generated from the documentation by API Evangelist (2026-10-21);
+
+    not the provider''s own document.'
+  humanURL: https://developers.afterpay.com/afterpay-online-developer/api-reference/reference/introduction
+  baseURL: https://global-api-sandbox.afterpay.com
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/afterpay-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/afterpay-get-v2-checkouts-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/afterpay-get-v2-disputes-response-schema.json
+  - type: JSONSchema
+    url: json-schema/afterpay-get-v2-disputes-dispute-id-accept-response-schema.json
+  - type: JSONSchema
+    url: json-schema/afterpay-get-v2-disputes-dispute-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/afterpay-post-v2-disputes-dispute-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/afterpay-delete-v2-billing-agreements-token-response-schema.json
+x-enrichment:
+  date: '2026-10-21'
+  status: enriched
+  artifacts_added: 26
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic

@@ -1,0 +1,45 @@
+name: Afterpay sandbox
+provider: afterpay
+generated: '2026-10-21'
+method: searched
+source: https://developers.afterpay.com/afterpay-online-developer/main/guides/api-development/test-environments.md
+docs: https://developers.afterpay.com/afterpay-online-developer/main/guides/api-development/test-environments
+description: Afterpay provides a sandbox environment for development and testing. Your Afterpay account manager will provide you with sandbox credentials. When you make a transaction in the sandbox, no
+  money actually moves.
+base_url: https://global-api-sandbox.afterpay.com
+token_url: https://merchant-auth-sandbox.afterpay.com/v2/oauth2/token
+partner_api_base_url: https://agencyapi.sandbox.afterpay.com
+dashboard: https://portal.sandbox.afterpay.com/merchant/
+credentials: issued by Afterpay account manager (no self-serve key prefixes documented)
+test_customers:
+  note: Each customer account requires a unique email address and phone number. No SMS messages are sent in the sandbox.
+  verification_code: '111111'
+test_cards:
+  rule: The sandbox capture response (approved/declined) is determined by the CVV value. Use 000 for approval and 051 for decline.
+  cards:
+  - brand: Visa
+    number: 4111 1111 1111 1111
+    expiry: 01/28
+    cvv: '000'
+    result: Approved
+  - brand: Visa
+    number: 4111 1111 1111 1111
+    expiry: 01/28
+    cvv: '051'
+    result: Declined
+  - brand: Mastercard
+    number: 5215 0977 9282 6659
+    expiry: 01/28
+    cvv: '000'
+    result: Approved
+  - brand: Mastercard
+    number: 5215 0977 9282 6659
+    expiry: 01/28
+    cvv: '051'
+    result: Declined
+tooling:
+- name: Afterpay Online API V2 Postman public workspace
+  url: https://www.postman.com/afterpay-1-426879/afterpay-online-apis-v2/overview
+- name: Shopify test mode
+  url: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/shopify/shopify-test-mode
+test_clocks: null

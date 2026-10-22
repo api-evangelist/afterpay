@@ -1,40 +1,13 @@
-specification: API Commons Rate Limits
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
-provider: Afterpay
-providerId: afterpay
-created: '2026-05-08'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-08, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-08'
-reconciled: false
-tags:
-- Fintech
-- BNPL
-- Payments
-- Consumer
-- Block
-- Rate Limiting
-- Quotas
-- Throttling
-description: Placeholder rate-limit artifact for Afterpay. Replace with real limits once researched.
-notes: "Initial scaffold \u2014 limits have not yet been reconciled."
-sources:
-- https://www.afterpay.com/
-- https://developers.afterpay.com/
-- https://developers.afterpay.com/afterpay-online/reference
-responseCodes:
-  throttled: 429
-limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
-policies:
-- name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+name: Afterpay rate limits
+provider: afterpay
+generated: '2026-10-21'
+method: none
+limit_count: 0
+limits: []
+checked:
+- https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction.md
+- https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/errors.md
+- https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/request-headers.md
+- https://developers.afterpay.com/afterpay-partner-api/guides/technical-guides/welcome/errors.md
+- https://developers.afterpay.com/afterpay-online-developer/main/llms.txt
+note: No published rate limits, 429 status or rate-limit headers in the Online or Partner API docs (checked 2026-10-21). Endpoint pages publish connection timeouts (e.g. Open 10 s / Read 70 s) instead.

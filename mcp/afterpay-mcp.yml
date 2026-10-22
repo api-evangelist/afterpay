@@ -1,4 +1,4 @@
-generated: '2026-09-25'
+generated: '2026-10-21'
 method: probed
 source: https://developers.afterpay.com/_mcp/server
 status: published
@@ -22,11 +22,12 @@ deployment:
   found_via: named in llms.txt (saved llms/)
   also_at:
   - https://developers.afterpay.com/mcp
-tools_note: No tool list captured. This manifest records a PROBED, reachable endpoint only; anonymous
-  tools/list was auth-gated or the server requires an initialize handshake this reachability probe does
-  not perform. Run signals/audit_mcp_authorship.py --probe to enumerate tools and settle platform-vs-provider
-  authorship. Do NOT derive a tool list from the OpenAPI and store it here -- that is a candidate manifest,
-  and it belongs under an X-MCPServerCandidate pointer.
+  auth: none
+  auth_evidence: anonymous initialize + tools/list answered (mcp/afterpay-mcp-tools.json, captured 2026-10-20)
+tools_note: Tool list captured live 2026-10-20 via anonymous initialize + tools/list (mcp/afterpay-mcp-tools.json);
+  no tool was called. The server is Fern's generic docs-search server (fern-docs-mcp-server) exposing
+  one tool, searchDocs, over the developers.afterpay.com documentation. It does not invoke the Afterpay
+  commerce API; no OpenAPI is saved in this repo, so no tool crosswalk is emitted.
 vendor:
   vendor: fern
   implementation: the vendor's generic server on the provider's own host

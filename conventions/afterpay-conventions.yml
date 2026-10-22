@@ -1,0 +1,98 @@
+name: Afterpay conventions
+provider: afterpay
+generated: '2026-10-21'
+method: searched
+source: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction.md
+authentication:
+  style: 'HTTP Basic (Merchant ID : Secret Key) or OAuth2 client-credentials bearer token; Partner API uses HMAC-SHA256 request signing'
+  see: authentication/afterpay-authentication.yml
+idempotency:
+  coverage: partial
+  mechanism: requestId field in the JSON request body (refunds also require merchantReference)
+  header: null
+  retention: For most endpoints, requests with the same requestId will return the same response for up to 24 hours. Refund requests are an exception — they support idempotency for longer than 24 hours.
+  in_progress: If an idempotent request returns an HTTP 409, it means the original request is still being processed. Retry the request with the same requestId until a different response is returned.
+  scope:
+  - POST /v2/payments/auth (Auth)
+  - POST /v2/payments/capture (Capture Full Payment)
+  - POST /v2/payments/{orderId}/capture (Capture Payment)
+  - POST /v2/payments/{orderId}/void (Void)
+  - POST /v2/payments/{orderId}/refund (Create Refund)
+  not_stated_for:
+  - POST /v2/checkouts (Create Checkout)
+  - Disputes endpoints
+  - Grants endpoints
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction
+reversibility:
+  surfaces:
+  - write: Auth / deferred capture
+    reversal: Void
+    operation: POST /v2/payments/{orderId}/void
+    window: You must capture payment for authorized orders within 13 days. After 13 days, the authorization expires and is automatically voided.
+    grade: verified
+    docs: https://developers.afterpay.com/afterpay-online-developer/main/guides/api-development/api-quickstart/deferred-capture
+    note: Void releases the remaining openToCapture amount; partial voids supported. Voided transactions cannot be reopened.
+  - write: Captured payment
+    reversal: Create Refund
+    operation: POST /v2/payments/{orderId}/refund
+    window: Don't create refunds after 120 days from the date of purchase.
+    error_on_expiry: refund_timelimit_exceeded — The refund exceeds the time limit of 120 days
+    grade: verified
+    docs: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/payments/create-refund
+  - write: Checkout / order creation
+    reversal: Reverse Payment By Token
+    operation: POST /v2/payments/token:{token}/reversal
+    window: the order must be in an Auth-Approved or Captured state and must be issued within 10 minutes of the order being created.
+    grade: verified
+    docs: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/payments/reverse-payment-by-token
+  - write: Grant (account linking / on-file)
+    reversal: Revoke Grant
+    operation: Revoke Grant
+    window: null
+    grade: documented
+    docs: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/grants/revoke-grant
+pagination:
+  style: cursor via nextPageUrl
+  applies_to: List Payments
+  params:
+  - includeNextLink
+  response_fields:
+  - limit
+  - totalResults
+  - nextPageUrl
+  - results
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction
+versioning:
+  scheme: URL path major version (/v1, /v2)
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/guides/api-development/upgrade-from-api-v-1-to-v-2
+  see: lifecycle/afterpay-lifecycle.yml
+error_envelope:
+  fields:
+  - errorCode
+  - errorId
+  - message
+  - httpStatusCode
+  see: errors/afterpay-problem-types.yml
+request_tracing:
+  response_field: errorId
+  note: A unique error ID for tracking and debugging. A User-Agent header identifying plugin, platform, system and merchant ID is required with all requests.
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/request-headers
+required_headers:
+- Authorization
+- 'Content-Type: application/json (POST/PUT)'
+- User-Agent
+- 'Accept: application/json or */* (recommended)'
+dates: ISO 8601, stored and returned in UTC
+timeouts:
+  note: 'Endpoint pages publish connection timeouts, e.g. Reverse Payment By Token: Open 10 seconds, Read 70 seconds'
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/payments/reverse-payment-by-token
+field_expansion: null
+metadata: null
+rate_limit_signaling:
+  documented: false
+  see: rate-limits/afterpay-rate-limits.yml
+environments:
+  production: https://global-api.afterpay.com
+  sandbox: https://global-api-sandbox.afterpay.com
+  regions: AU, NZ, CA, UK
+  legacy: region-specific endpoints such as https://api.us.afterpay.com remain usable for their current region

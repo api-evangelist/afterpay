@@ -1,0 +1,40 @@
+name: Afterpay authentication
+provider: afterpay
+generated: '2026-10-21'
+method: searched
+source: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/authentication.md
+docs: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/introduction/authentication
+schemes:
+- id: basicAuth
+  type: http
+  scheme: basic
+  description: Merchant ID as username and Secret Key as password, base64-encoded per RFC 7617. Afterpay provides merchant accounts per region, and each merchant account has unique API credentials. Required
+    on every Online API endpoint except Ping.
+  applies_to: Afterpay Online API
+- id: clientCredentials
+  type: oauth2
+  flow: clientCredentials
+  tokenUrl: https://merchant-auth.afterpay.com/v2/oauth2/token
+  sandboxTokenUrl: https://merchant-auth-sandbox.afterpay.com/v2/oauth2/token
+  scopes:
+  - merchant_api_v2
+  - merchant_api_v1
+  description: Client Credentials (RFC 6749) bearer tokens; scope merchant_api_v2, or merchant_api_v1 for the first version of the merchant APIs.
+  applies_to: Afterpay Online API
+- id: accountLinking
+  type: oauth2
+  flow: authorizationCode
+  scopes:
+  - read_user_info
+  - create_checkout
+  description: 'Account Linking (OAuth): authorization code obtained through an Afterpay checkout, exchanged for access and refresh tokens.'
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/guides/api-development/additional-features/account-linking-oauth
+  applies_to: Account linking
+- id: requestSigning
+  type: apiKey
+  in: header
+  name: X-Afterpay-Request-Apikey
+  description: 'Partner API: HMAC-SHA256 signature in X-Afterpay-Request-Signature over URL, X-Afterpay-Request-Date epoch timestamp (no more than 60 seconds old) and body, keyed with the shared secret.'
+  docs: https://developers.afterpay.com/afterpay-partner-api/guides/technical-guides/welcome/request-signing
+  applies_to: Afterpay Partner API
+transport: All communication must use TLS 1.2 or higher.

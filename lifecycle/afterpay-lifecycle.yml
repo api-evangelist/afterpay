@@ -1,0 +1,27 @@
+name: Afterpay lifecycle
+provider: afterpay
+generated: '2026-10-21'
+method: searched
+source: https://developers.afterpay.com/afterpay-online-developer/main/guides/api-development/upgrade-from-api-v-1-to-v-2.md
+versioning:
+  scheme: major version in URL path (/v1, /v2)
+  current: v2
+  docs_versions:
+  - Main (default)
+  - v1
+  - Chinese
+  migration_guide: https://developers.afterpay.com/afterpay-online-developer/main/guides/api-development/upgrade-from-api-v-1-to-v-2
+  note: v1 remains reachable (merchant_api_v1 scope may be used to access the first version of the merchant APIs); no published sunset date found.
+deprecation:
+  policy: null
+  headers: null
+  note: No written deprecation policy or Sunset/Deprecation headers found in the docs.
+deprecated_products:
+- name: Billing Agreements (Deprecated)
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/api-reference/reference/billing-agreements-deprecated/create-billing-agreement
+  replacement: Grants
+- name: Dynamic Widget / JavaScript library messaging (legacy messaging products)
+  docs: https://developers.afterpay.com/afterpay-online-developer/main/guides/afterpay-messaging/legacy-messaging-products
+  replacement: On-Site Messaging
+sla: null
+status_page: https://status.afterpay.com/
