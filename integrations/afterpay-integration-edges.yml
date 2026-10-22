@@ -1,4 +1,28 @@
-generated: '2026-10-18'
+generated: '2026-10-21'
+method: searched
+source:
+- https://fivetran.com/docs-sitemap.xml
+- https://fivetran.com/docs/connectors/partner-built-program
+- https://zapier.com/apps/afterpay/integrations
+- https://n8n.io/integrations/afterpay/
+- https://composio.dev/toolkits/afterpay
+- https://monid.ai/tools/afterpay
+- https://developers.afterpay.com/afterpay-online-developer/main/llms.txt
+checked:
+- https://fivetran.com/docs-sitemap.xml
+- https://fivetran.com/docs/connectors/partner-built-program
+- https://composio.dev/toolkits/afterpay
+- https://monid.ai/tools/afterpay
+- https://n8n.io/integrations/afterpay/
+- https://zapier.com/apps/afterpay/integrations
+- https://developers.afterpay.com/afterpay-online-developer/main/llms.txt
+- https://www.bankofcanada.ca/core-functions/retail-payments-supervision/psp-registry/
+- https://www.bankofcanada.ca/rps-api/cif2/accounts/list
+- https://www.payments.ca/payment-resources/directories?field_directory_type=10
+- https://www.payments.ca/payment-resources/directories?field_directory_type=13
+- https://www.payments.ca/payment-resources/directories?field_directory_type=14
+summary: null
+marketplace_apps: []
 edges:
 - partner_name: Fivetran
   partner: fivetran
@@ -26,10 +50,271 @@ edges:
     builder: Fivetran
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
-method: searched
-checked:
-- https://fivetran.com/docs-sitemap.xml
-- https://fivetran.com/docs/connectors/partner-built-program
-source:
-- https://fivetran.com/docs-sitemap.xml
-- https://fivetran.com/docs/connectors/partner-built-program
+- partner_name: Shopify
+  partner: shopify
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/shopify/
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: BigCommerce
+  partner: bigcommerce
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/big-commerce/
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: WooCommerce
+  partner: woocommerce
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/woo-commerce/
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Adobe Commerce (Magento)
+  partner: adobe-commerce
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/adobe-commerce-magento/
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Salesforce Commerce Cloud
+  partner: salesforce-commerce-cloud
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/salesforce-commerce-cloud/
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Adyen
+  partner: adyen
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/adyen/
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Stripe
+  partner: stripe
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/stripe/
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Ecwid
+  partner: ecwid
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/ecwid/
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: PrestaShop
+  partner: prestashop
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/presta-shop/
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Wix
+  partner: wix
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/wix
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: OpenCart
+  partner: opencart
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/opencart
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Lightspeed
+  partner: lightspeed
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/lightspeed
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Bolt
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/bolt
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Solidus
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/solidus
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Ecorner
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/ecorner
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Enflexion
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/enflexion
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Havealook
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/havealook
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Kynect
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/kynect
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Nimbo
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/nimbo
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Oncord
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/oncord
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Rocketspark
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/rocketspark
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Spiffy Stores
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/spiffy-stores
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Storbie
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/storbie
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Straightsell
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/straightsell
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Web Ninja
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/web-ninja
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Website World
+  partner: null
+  type: claimed
+  channel: platform-plugin
+  relationship: payment-method
+  direction: unknown
+  evidence: https://developers.afterpay.com/afterpay-online-developer/main/guides/platforms/other-platforms/website-world
+  category: ecommerce-platform
+  note: Platform integration guide listed in the Afterpay Online Developer docs index
+- partner_name: Bank of Canada RPAA registry of payment service providers
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.bankofcanada.ca/core-functions/retail-payments-supervision/psp-registry/
+  category: Canadian retail payment activities (RPAA) PSP registration
+  contract_reference:
+    register: Bank of Canada RPAA registry of payment service providers
+    spec_file: null
+    standard: null
+    role: registered-psp
+    registrations:
+    - registered_name: Afterpay Canada Limited
+      register_status: registered
+      register_country: US
+      register_id: 01829e78-6e98-ef11-8a68-0022483dbf39
+      matched_domain: afterpay.com
+      matched_by: domain
+      evidence_url: https://www.bankofcanada.ca/core-functions/retail-payments-supervision/psp-registry/psp-registry-details/?account_id=01829e78-6e98-ef11-8a68-0022483dbf39
+      licences:
+      - RPAA registered PSP
+      registration_date: '2026-05-25'
+      head_office_country: United States of America (the)
+      has_violations: false
+    signal_note: 'participation only: a regulator registration / payment-system membership; no API conformance is
+      published by this register'
+    detected_by: sweep-canada-rpaa-psp-registry.py
+    detected: '2026-10-22'
+  detected_by: sweep-canada-rpaa-psp-registry.py
+  first_seen: '2026-10-22'
+templates: []
