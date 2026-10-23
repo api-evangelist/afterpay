@@ -21,6 +21,9 @@ checked:
 - https://www.payments.ca/payment-resources/directories?field_directory_type=10
 - https://www.payments.ca/payment-resources/directories?field_directory_type=13
 - https://www.payments.ca/payment-resources/directories?field_directory_type=14
+- https://hex.pm/api
+- https://packagist.org/packages
+- https://pub.dev/api
 summary: null
 marketplace_apps: []
 edges:
@@ -316,5 +319,53 @@ edges:
     detected_by: sweep-canada-rpaa-psp-registry.py
     detected: '2026-10-22'
   detected_by: sweep-canada-rpaa-psp-registry.py
+  first_seen: '2026-10-22'
+- partner_name: Packagist
+  partner: packagist
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (PHP)
+  evidence: https://packagist.org/packages/afterpay-global/afterpay-sdk-php
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Packagist (public registry JSON)
+    spec_file: null
+    language: PHP
+    packages:
+    - name: afterpay-global/afterpay-sdk-php
+      version: 1.8.0
+      released: '2024-01-19'
+      released_field: time
+      lapsed: true
+      page: https://packagist.org/packages/afterpay-global/afterpay-sdk-php
+      repo_leg: github-org:afterpay
+      publisher_leg: org:afterpay
+      matched_by: github-org
+    - name: afterpay-global/module-afterpay
+      version: 5.4.6
+      released: '2026-07-21'
+      released_field: time
+      lapsed: false
+      page: https://packagist.org/packages/afterpay-global/module-afterpay
+      repo_leg: github-org:afterpay
+      publisher_leg: org:afterpay
+      matched_by: github-org
+    - name: afterpay-global/module-cash-app-pay
+      version: 4.0.6
+      released: '2024-08-07'
+      released_field: time
+      lapsed: true
+      page: https://packagist.org/packages/afterpay-global/module-cash-app-pay
+      repo_leg: github-org:afterpay
+      publisher_leg: org:afterpay
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-php-dart-elixir-package-registries.py
+    detected: '2026-10-22'
+  detected_by: sweep-php-dart-elixir-package-registries.py
   first_seen: '2026-10-22'
 templates: []
