@@ -72,13 +72,11 @@ Afterpay (acquired by Block / Square) is a buy-now-pay-later platform offering P
 
 Everything profiled for Afterpay is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/afterpay/](https://apis.io/providers/afterpay/)** — or go straight to one of the APIs or properties below.
 
-### APIs (5)
+### APIs (3)
 
 - [Afterpay Checkout API](https://apis.io/apis/afterpay/afterpay-checkout-api/) — Create and confirm Afterpay checkouts for merchant integrations.
 - [Afterpay Payments API](https://apis.io/apis/afterpay/afterpay-payments-api/) — Auth, capture, void and refund Afterpay payments.
 - [Afterpay Configuration API](https://apis.io/apis/afterpay/afterpay-configuration-api/) — Retrieve merchant-level configuration and supported regions.
-- [Afterpay Partner API](https://apis.io/apis/afterpay/afterpay-partner-api/) — Partner (agency) API for onboarding merchants to Afterpay, managing their payment-method and cross-border-trade capabilities, reviewing contracts and custom…
-- [Afterpay API](https://apis.io/apis/afterpay/afterpay-api/) — Afterpay API as documented publicly: 38 operations. Contract generated from the documentation by API Evangelist (2026-10-21); not the provider's own document.
 
 ### Published properties
 
@@ -100,38 +98,32 @@ Model Context Protocol servers that expose the API to agents.
 
 The data models the API reads and writes.
 
-- [DeleteV2BillingAgreementsTokenResponse](https://apis.io/schemas/afterpay/afterpay-delete-v2-billing-agreements-token-response/)
-- [GetV2CheckoutsTokenResponse](https://apis.io/schemas/afterpay/afterpay-get-v2-checkouts-token-response/)
-- [GetV2DisputesDisputeIdAcceptResponse](https://apis.io/schemas/afterpay/afterpay-get-v2-disputes-dispute-id-accept-response/)
-- [GetV2DisputesDisputeIdResponse](https://apis.io/schemas/afterpay/afterpay-get-v2-disputes-dispute-id-response/)
-- [GetV2DisputesResponse](https://apis.io/schemas/afterpay/afterpay-get-v2-disputes-response/)
-- [PostV2DisputesDisputeIdResponse](https://apis.io/schemas/afterpay/afterpay-post-v2-disputes-dispute-id-response/)
+- [Moved to /providers/afterpay/](https://apis.io/schemas/afterpay/afterpay-delete-v2-billing-agreements-token-response/)
+- [Moved to /providers/afterpay/](https://apis.io/schemas/afterpay/afterpay-get-v2-checkouts-token-response/)
+- [Moved to /providers/afterpay/](https://apis.io/schemas/afterpay/afterpay-get-v2-disputes-dispute-id-accept-response/)
+- [Moved to /providers/afterpay/](https://apis.io/schemas/afterpay/afterpay-get-v2-disputes-dispute-id-response/)
+- [Moved to /providers/afterpay/](https://apis.io/schemas/afterpay/afterpay-get-v2-disputes-response/)
+- [Moved to /providers/afterpay/](https://apis.io/schemas/afterpay/afterpay-post-v2-disputes-dispute-id-response/)
 
 #### JSON-LD (1)
 
 Linked-data contexts for the provider's vocabulary.
 
-- [Afterpay Context](https://apis.io/jsonld/afterpay/afterpay-context/)
+- [Moved to /providers/afterpay/](https://apis.io/jsonld/afterpay/afterpay-context/)
 
 #### Governance rules (1)
 
 Spectral rulesets for the provider's contracts.
 
-- [Afterpay API Rules](https://apis.io/rules/afterpay/afterpay-rules/)
+- [Moved to /providers/afterpay/](https://apis.io/rules/afterpay/afterpay-rules/)
 
 #### Security (3)
 
 Authentication, trust centre, and vulnerability disclosure.
 
-- [Afterpay Authentication](https://apis.io/security/afterpay/afterpay-authentication/)
+- [Moved to /providers/afterpay/](https://apis.io/security/afterpay/afterpay-authentication/)
 - [Afterpay Domain Security](https://apis.io/security/afterpay/afterpay-domain-security/)
 - [Afterpay Vulnerability Disclosure](https://apis.io/security/afterpay/afterpay-vulnerability-disclosure/)
-
-#### OAuth scopes (1)
-
-The permissions the API asks for.
-
-- [Afterpay Scopes](https://apis.io/scopes/afterpay/afterpay-scopes/)
 
 #### Plans and pricing (1)
 
@@ -160,18 +152,18 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 9.3** — minimal · rubric 0.25.0 · scored 2026-10-23
+**Kin Score 9.2** — minimal · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
 | Discoverability | 71.7 |
 | Contract quality | 0.0 |
 | Contract governance | 0.0 |
-| Operational transparency | 18.4 |
+| Operational transparency | 19.0 |
 | Developer ergonomics | 0.0 |
-| Access clarity | 5.3 |
+| Access clarity | 4.3 |
 
-**Agent readiness 9.3** — agent-aware
+**Agent readiness 12.8** — agent-aware
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -196,6 +188,10 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Agentic Commerce | — |
 | Pagination Ratio | na |
 | Operation Distinctiveness | na |
+| MCP Tool Quality | full |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
 **Regulatory alignment 10.7** — Payments
 
